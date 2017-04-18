@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+$font-url: 'https://fonts.googleapis.com/css?family=Rubik';
+$font-family: 'Rubik', serif;
+
+@import "semantic-ui";
+
+div.content {
+  margin-top: 30px;
+}

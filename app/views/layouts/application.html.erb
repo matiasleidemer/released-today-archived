@@ -9,9 +9,16 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div id="application" class="ui container">
+      <% flash.each do |key, value| %>
+        <div class="ui tiny message">
+          <%= value %>
+        </div>
+      <% end %>
 
-    <%= yield %>
+      <div class="body content">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
