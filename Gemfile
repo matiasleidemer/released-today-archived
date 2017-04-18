@@ -13,7 +13,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
-gem 'rspotify'
+gem 'rspotify', '~> 1.20.0'
+gem 'devise'
+gem 'omniauth-spotify'
+# gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 
 group :development, :test do
   gem 'byebug', platform: :mri
