@@ -14,71 +14,26 @@
 <h2>Albums</h2>
 
 <div class="ui three column stackable grid">
-  <div class="column">
-    <div class="ui centered card">
-      <div class="image">
-        <img src="https://i.scdn.co/image/4be1997ee3c666a33f92c8d73c490a222d475662">
-      </div>
-      <div class="content">
-        <div class="header">Splashh</div>
-        <div class="meta"><a class="group">Waiting a Lifetime</a></div>
-      </div>
+  <% @albums.each do |album| %>
+    <div class="column">
+      <div class="ui centered card">
+        <div class="image">
+          <%= image_tag album.image_url %>
+        </div>
+        <div class="content">
+          <div class="header">
+            <%= album.artist.name %>
+          </div>
+          <div class="meta">
+            <%= link_to album.name, "https://open.spotify.com/album/#{album.spotify_id}", class: "group" %>
+          </div>
+        </div>
 
-      <div class="extra content">
-        <div class="right floated created"><i class="unordered calendar icon"></i>April 14, 2017</div>
-        <div><i class="unordered list icon"></i>10 Tracks</div>
+        <div class="extra content">
+          <div class="right floated created"><i class="unordered calendar icon"></i><%= I18n.l(album.released_at, format: :short_with_year) %></div>
+          <div><i class="unordered list icon"></i><%= pluralize(album.number_of_tracks, 'Track') %></div>
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="column">
-    <div class="ui centered card">
-      <div class="image">
-        <img src="https://i.scdn.co/image/9ccf4a8669fcd328d7288d4232518cf0cc0747f8">
-      </div>
-      <div class="content">
-        <div class="header">Royal Blood</div>
-        <div class="meta"><a class="group">Lights Out</a></div>
-      </div>
-
-      <div class="extra content">
-        <div class="right floated created"><i class="unordered calendar icon"></i>April 13, 2017</div>
-        <div><i class="unordered list icon"></i>1 Track</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="ui centered card">
-      <div class="image">
-        <img src="https://i.scdn.co/image/3bf3bd6a4617dfeb8f5c4f16cd6c74ceeaba5d52">
-      </div>
-      <div class="content">
-        <div class="header">Mastodon</div>
-        <div class="meta"><a class="group">Emperor of Sand</a></div>
-      </div>
-
-      <div class="extra content">
-        <div class="right floated created"><i class="unordered calendar icon"></i>March 31, 2017</div>
-        <div><i class="unordered list icon"></i>11 Tracks</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="column">
-    <div class="ui centered card">
-      <div class="image">
-        <img src="https://d3rt1990lpmkn.cloudfront.net/640/2aa00b84f1191c7322a67ef56b3d7a8f488cb1a6">
-      </div>
-      <div class="content">
-        <div class="header">E A Terra Nunca Me Pareceu Tão Distante</div>
-        <div class="meta"><a class="group">E A Terra Nunca Me Pareceu Tão Distante</a></div>
-      </div>
-
-      <div class="extra content">
-        <div class="right floated created"><i class="unordered calendar icon"></i>June 17, 2014</div>
-        <div><i class="unordered list icon"></i>4 Tracks</div>
-      </div>
-    </div>
-  </div>
+  <% end %>
 </div>
