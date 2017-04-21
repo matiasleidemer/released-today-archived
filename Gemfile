@@ -17,6 +17,7 @@ gem 'rspotify', '~> 1.20.0'
 gem 'devise'
 gem 'omniauth-spotify'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
+gem 'grape'
 
 group :development, :test do
   gem 'byebug', platform: :mri
