@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+remote = ARGV[0]
+
+app = {
+  'staging' => 'pmtotal-rails3-staging',
+  'production' => 'pmtotal-rails3-prodv5'
+}[remote]
+
+puts "Generating dump for #{remote}..."
+system "heroku pg:backups:capture --app #{app}"
+
+puts 'Downloading dump...'
+system "curl -o latest.dump `heroku pg:backups:public-url --app #{app}`"
+
+puts 'Droping current database...'
+system 'bundle exec rake db:drop'
+
+puts 'Creating new database...'
+system 'bundle exec rake db:create:all'
+
+puts 'Populating...'
+system 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -d pmtotal_development latest.dump'
+
+puts 'Done!'
