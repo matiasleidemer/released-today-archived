@@ -1,10 +1,14 @@
 module Factories
   class Album
     def self.create_latest_from_artist(artist)
-      latest_album = RSpotify::Artist.find(artist.spotify_id).albums(album_type: 'album').sort_by(&:release_date).last
-      latest_single = RSpotify::Artist.find(artist.spotify_id).albums(album_type: 'single').sort_by(&:release_date).last
+      spotify_artist = RSpotify::Artist.find(artist.spotify_id)
 
-      [latest_album, latest_single].each do |payload|
+      latest_album  = spotify_artist.albums(limit: 1, market: 'US', album_type: 'album').first
+      latest_single = spotify_artist.albums(limit: 1, market: 'US', album_type: 'single').first
+
+      albums = RSpotify::Album.find([latest_album.id, latest_single.id])
+
+      albums.each do |payload|
         ::Album.find_or_create_by(spotify_id: payload.id) do |album|
           album.artist_id = artist.id
           album.spotify_id = payload.id
