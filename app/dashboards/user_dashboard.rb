@@ -11,6 +11,7 @@ class UserDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     email: Field::String,
+    admin: Field::Boolean,
     provider: Field::String,
     uid: Field::String,
     metadata: Field::String.with_options(searchable: false),
@@ -27,6 +28,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
+    :admin,
     :uid,
     :provider,
   ].freeze
@@ -37,6 +39,7 @@ class UserDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :email,
+    :admin,
     :provider,
     :uid,
     :metadata,
@@ -50,6 +53,7 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :email,
+    :admin,
     :provider,
     :uid,
     :metadata,

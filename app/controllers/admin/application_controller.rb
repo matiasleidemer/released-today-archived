@@ -9,6 +9,7 @@ module Admin
     before_action :authenticate_admin
 
     def authenticate_admin
+      redirect_to root_url unless current_user.try(:admin?)
     end
 
     # Override this value to specify the number of elements to display at a time
