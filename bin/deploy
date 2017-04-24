@@ -10,4 +10,5 @@ app = {
 
 system "heroku pg:backups capture --app #{app}"
 system "git push #{remote} master"
+system "heroku run rails db:migrate --app #{app}"
 system "heroku restart --app #{app}"
