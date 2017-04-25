@@ -1,9 +1,10 @@
 class SpotifyCallbacksController < Devise::OmniauthCallbacksController
   def spotify
-    @user = User.from_omniauth(request.env["omniauth.auth"])
+    repository = Repositories::UserRepository.new
+    user = repository.create_from_omniauth(request.env["omniauth.auth"])
 
-    if @user.persisted?
-      sign_in @user
+    if user.persisted?
+      sign_in user
       redirect_to dashboard_url, notice: "Logged in successfully"
     else
       redirect_to root_url, flash: "Something went wrong"
