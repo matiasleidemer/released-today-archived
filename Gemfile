@@ -22,6 +22,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
