@@ -11,6 +11,10 @@ module Spotify
       new(payload)
     end
 
+    def latest_albums
+      Spotify::LatestAlbumsFinder.call(artist: self)
+    end
+
     def name
       data[:name]
     end
