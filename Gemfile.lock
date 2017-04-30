@@ -82,6 +82,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    database_cleaner (1.4.1)
     datetime_picker_rails (0.0.7)
       momentjs-rails (>= 2.8.1)
     devise (4.2.1)
@@ -271,6 +272,7 @@ DEPENDENCIES
   administrate
   byebug
   coffee-rails (~> 4.2)
+  database_cleaner
   devise
   jbuilder (~> 2.5)
   jquery-rails
