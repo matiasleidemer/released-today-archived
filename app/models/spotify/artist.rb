@@ -11,6 +11,11 @@ module Spotify
       new(payload)
     end
 
+    def self.find_all(artists_ids, client = RSpotify::Artist)
+      artists = JSON.parse(client.find(artists_ids).to_json)
+      artists.map { |payload| new(payload.with_indifferent_access) }
+    end
+
     def latest_albums
       Spotify::LatestAlbumsFinder.call(artist: self)
     end
