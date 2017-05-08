@@ -6,4 +6,9 @@ class User < ApplicationRecord
   validates :uid, uniqueness: true
 
   devise :omniauthable, :omniauth_providers => [:spotify]
+
+  def follow_artist(artist)
+    return if artists.include?(artist)
+    artists << artist
+  end
 end
