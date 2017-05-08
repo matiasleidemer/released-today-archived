@@ -6,7 +6,7 @@ module Api
       end
 
       def create
-        user = repository.create_from_api(params)
+        user = repository.create_from_api(resource_params)
 
         if user.errors.empty?
           render json: user
@@ -19,6 +19,10 @@ module Api
 
       def repository
         @repository ||= Repositories::UserRepository.new
+      end
+
+      def attributes
+        [:name, :email, :provider, :uid, :metadata]
       end
     end
   end
