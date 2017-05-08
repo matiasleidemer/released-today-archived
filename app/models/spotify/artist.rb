@@ -16,8 +16,8 @@ module Spotify
       artists.map { |payload| new(payload.with_indifferent_access) }
     end
 
-    def latest_albums
-      Spotify::LatestAlbumsFinder.call(artist: self)
+    def latest_releases
+      Spotify::LatestReleasesFinder.call(artist: self)
     end
 
     def name

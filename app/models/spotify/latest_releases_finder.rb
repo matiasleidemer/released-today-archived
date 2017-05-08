@@ -2,7 +2,7 @@ module Spotify
   # This is currently too tighted to RSpotify
   # For now we're gonna have to deal with it. For future implementations, however,
   # we need to find a way to decouple it. Maybe by introducing custom client?
-  class LatestAlbumsFinder
+  class LatestReleasesFinder
     class << self
       def call(artist:, artist_client: RSpotify::Artist, album_client: RSpotify::Album)
         spotify_artist = artist_client.new(artist.metadata)
