@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170508021701) do
+ActiveRecord::Schema.define(version: 20170508024705) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 20170508021701) do
     t.index ["spotify_id"], name: "index_artists_on_spotify_id", using: :btree
   end
 
+  create_table "artists_users", force: :cascade do |t|
+    t.integer "artist_id"
+    t.integer "user_id"
+    t.index ["artist_id"], name: "index_artists_users_on_artist_id", using: :btree
+    t.index ["user_id"], name: "index_artists_users_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email",                      null: false
@@ -52,4 +59,6 @@ ActiveRecord::Schema.define(version: 20170508021701) do
   end
 
   add_foreign_key "albums", "artists"
+  add_foreign_key "artists_users", "artists"
+  add_foreign_key "artists_users", "users"
 end
