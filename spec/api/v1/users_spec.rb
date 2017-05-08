@@ -16,7 +16,8 @@ RSpec.describe "Users API", type: :request do
             email: 'foo@bar.com',
             provider: 'spotify',
             uid: '123',
-            metadata: nil
+            metadata: nil,
+            token: nil
           }
         }
       }
@@ -44,17 +45,19 @@ RSpec.describe "Users API", type: :request do
 
       it "creates and returns a new user" do
         post "/api/v1/users", params: params
+        user = User.last
 
         result = {
           data: {
-            id: User.last.id.to_s,
+            id: user.id.to_s,
             type: 'users',
             attributes: {
               name: 'John Snow',
               email: 'john@snow.com',
               provider: 'spotify',
               uid: '456',
-              metadata: nil
+              metadata: nil,
+              token: user.token
             }
           }
         }
