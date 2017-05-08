@@ -16,7 +16,7 @@ module Spotify
       private
 
       def albums_ids(artist)
-        [latest_album(artist), latest_single(artist)].map(&:id)
+        [latest_album(artist), latest_single(artist)].compact.map(&:id).uniq
       end
 
       def latest_album(artist)
