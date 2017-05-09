@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resources :users, only: [:show, :create]
 
       post "me/add_artists", to: "profile#add_artists"
+      get  "me/artists",     to: "profile#artists"
     end
   end
 end

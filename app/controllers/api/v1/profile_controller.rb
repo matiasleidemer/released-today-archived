@@ -3,8 +3,8 @@ module Api
     class ProfileController < Api::BaseController
       before_action :authenticate_user
 
-      # TODO:
       def artists
+        render json: current_user.artists
       end
 
       # TODO:
