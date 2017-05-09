@@ -19,6 +19,7 @@ gem 'omniauth-spotify'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 gem 'administrate'
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'factory_girl_rails', '~> 4.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri
