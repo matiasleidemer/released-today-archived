@@ -8,17 +8,14 @@ RSpec.describe "Users API", type: :request do
       get "/api/v1/users/#{user.id}"
 
       result = {
-        data: {
-          id: user.id.to_s,
-          type: 'users',
-          attributes: {
-            name: 'Foo',
-            email: 'foo@bar.com',
-            provider: 'spotify',
-            uid: '123',
-            metadata: nil,
-            token: nil
-          }
+        user: {
+          id: user.id,
+          name: 'Foo',
+          email: 'foo@bar.com',
+          provider: 'spotify',
+          uid: '123',
+          metadata: nil,
+          token: nil
         }
       }
 
@@ -31,15 +28,10 @@ RSpec.describe "Users API", type: :request do
     context "with valid parameters" do
       let(:params) do
         {
-          data: {
-            type: 'users',
-            attributes: {
-              name: 'John Snow',
-              email: 'john@snow.com',
-              provider: 'spotify',
-              uid: '456',
-            }
-          }
+          name: 'John Snow',
+          email: 'john@snow.com',
+          provider: 'spotify',
+          uid: '456'
         }
       end
 
@@ -48,17 +40,14 @@ RSpec.describe "Users API", type: :request do
         user = User.last
 
         result = {
-          data: {
-            id: user.id.to_s,
-            type: 'users',
-            attributes: {
-              name: 'John Snow',
-              email: 'john@snow.com',
-              provider: 'spotify',
-              uid: '456',
-              metadata: nil,
-              token: user.token
-            }
+          user: {
+            id: user.id,
+            name: 'John Snow',
+            email: 'john@snow.com',
+            provider: 'spotify',
+            uid: '456',
+            metadata: nil,
+            token: user.token
           }
         }
 
@@ -70,15 +59,10 @@ RSpec.describe "Users API", type: :request do
     context "with invalid parameters" do
       let(:params) do
         {
-          data: {
-            type: 'users',
-            attributes: {
-              name: 'John Snow',
-              email: '',
-              provider: 'spotify',
-              uid: '',
-            }
-          }
+          name: 'John Snow',
+          email: '',
+          provider: 'spotify',
+          uid: ''
         }
       end
 
@@ -86,15 +70,11 @@ RSpec.describe "Users API", type: :request do
         post "/api/v1/users", params: params
 
         result = {
-          errors: [
-            {
-              source: { pointer: "/data/attributes/email" },
-              detail: "can't be blank" },
-            {
-              source: { pointer: "/data/attributes/uid" },
-              detail: "can't be blank"
-            }
-          ]}
+          errors: {
+            email: ["can't be blank"],
+            uid: ["can't be blank"]
+          }
+        }
 
         expect(response.status).to eql(422)
         expect(response.body).to eql(result.to_json)

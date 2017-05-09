@@ -3,7 +3,7 @@ module Api
     skip_before_action :verify_authenticity_token
 
     def render_errors(resource)
-      render json: resource, status: 422, serializer: ActiveModel::Serializer::ErrorSerializer
+      render json: { errors: resource.errors }, status: 422
     end
 
     def render_unauthorized
@@ -11,18 +11,6 @@ module Api
     end
 
     private
-
-    def schema
-      params.require(:data).permit(:type, { attributes: attributes })
-    end
-
-    def resource_params
-      schema[:attributes] || {}
-    end
-
-    def attributes
-      raise "Implement me with an array of attributes"
-    end
 
     def authenticate_user
       authenticate_api_key || render_unauthorized

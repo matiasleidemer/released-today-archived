@@ -26,8 +26,8 @@ module Api
 
       private
 
-      def attributes
-        [:artists_ids]
+      def resource_params
+        params.permit(:artists_ids)
       end
 
       def artists_ids

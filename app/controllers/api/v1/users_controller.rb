@@ -21,8 +21,8 @@ module Api
         @repository ||= Repositories::UserRepository.new
       end
 
-      def attributes
-        [:name, :email, :provider, :uid, :metadata]
+      def resource_params
+        params.permit(:name, :email, :provider, :uid, :metadata)
       end
     end
   end
