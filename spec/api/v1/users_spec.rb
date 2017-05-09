@@ -10,12 +10,12 @@ RSpec.describe "Users API", type: :request do
       result = {
         user: {
           id: user.id,
-          name: 'John Snow',
-          email: 'john@snow.com',
-          provider: 'spotify',
-          uid: '12345',
-          metadata: nil,
-          token: "5b65f1"
+          name: user.name,
+          email: user.email,
+          provider: user.provider,
+          uid: user.uid,
+          metadata: user.metadata,
+          token: user.token
         }
       }
 
@@ -35,11 +35,11 @@ RSpec.describe "Users API", type: :request do
         result = {
           user: {
             id: user.id,
-            name: 'John Snow',
-            email: 'john@snow.com',
-            provider: 'spotify',
-            uid: '456',
-            metadata: nil,
+            name: user.name,
+            email: user.email,
+            provider: user.provider,
+            uid: user.uid,
+            metadata: user.metadata,
             token: user.token
           }
         }

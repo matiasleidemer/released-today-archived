@@ -7,8 +7,9 @@ module Api
         render json: current_user.artists
       end
 
-      # TODO:
       def releases
+        repository = Repositories::AlbumRepository.new
+        render json: repository.user_releases(current_user), root: "releases"
       end
 
       def add_artists

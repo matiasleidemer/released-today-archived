@@ -18,5 +18,12 @@ module Repositories
       record.save
       record
     end
+
+    def user_releases(user)
+      model
+        .joins(artist: :users)
+        .where('artists_users.user_id = ?', user.id)
+        .order('released_at DESC').includes(:artist).limit(9)
+    end
   end
 end
