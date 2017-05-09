@@ -5,9 +5,11 @@ RSpec.describe "Profile API", type: :request do
   let(:artist) { FactoryGirl.create(:artist) }
   let(:anoter_artist) { FactoryGirl.create(:artist, name: "Dummy", spotify_id: "1234") }
 
-  before { user.follow_artist(artist) }
-
   describe "GET artists" do
+    before { user.follow_artist(artist) }
+
+    it_behaves_like "Profile API", :get, "/api/v1/me/artists"
+
     it "returns the user's followed artists" do
       get "/api/v1/me/artists", headers: { "X-Released-User-Token" => user.token }
 
@@ -25,18 +27,14 @@ RSpec.describe "Profile API", type: :request do
       expect(response.status).to eq(200)
       expect(response.body).to eq(result.to_json)
     end
-
-    # TODO: turn this into a shared example?
-    it "returns unauthorized if user token is invalid" do
-      get "/api/v1/me/artists", headers: { "X-Released-User-Token" => "nope" }
-
-      expect(response.status).to eq(401)
-      expect(response.body).to eq("Bad credentials")
-    end
   end
 
   describe "GET releases" do
     let!(:album) { FactoryGirl.create(:album, artist: artist) }
+
+    before { user.follow_artist(artist) }
+
+    it_behaves_like "Profile API", :get, "/api/v1/me/releases"
 
     it "returns the user's latest releases" do
       get "/api/v1/me/releases", headers: { "X-Released-User-Token" => user.token }
@@ -61,14 +59,6 @@ RSpec.describe "Profile API", type: :request do
 
       expect(response.status).to eq(200)
       expect(response.body).to eq(result.to_json)
-    end
-
-    # TODO: turn this into a shared example?
-    it "returns unauthorized if user token is invalid" do
-      get "/api/v1/me/artists", headers: { "X-Released-User-Token" => "nope" }
-
-      expect(response.status).to eq(401)
-      expect(response.body).to eq("Bad credentials")
     end
   end
 end
