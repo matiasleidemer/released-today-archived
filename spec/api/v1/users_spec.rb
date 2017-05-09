@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "Users API", type: :request do
-  let(:user) { User.create!(provider: 'spotify', uid: '123', name: 'Foo', email: 'foo@bar.com')}
+  let(:user) { FactoryGirl.create(:user) }
 
   describe "GET show" do
     it "returns the user's data" do
@@ -10,12 +10,12 @@ RSpec.describe "Users API", type: :request do
       result = {
         user: {
           id: user.id,
-          name: 'Foo',
-          email: 'foo@bar.com',
+          name: 'John Snow',
+          email: 'john@snow.com',
           provider: 'spotify',
-          uid: '123',
+          uid: '12345',
           metadata: nil,
-          token: nil
+          token: "5b65f1"
         }
       }
 
@@ -26,14 +26,7 @@ RSpec.describe "Users API", type: :request do
 
   describe "POST create" do
     context "with valid parameters" do
-      let(:params) do
-        {
-          name: 'John Snow',
-          email: 'john@snow.com',
-          provider: 'spotify',
-          uid: '456'
-        }
-      end
+      let(:params) { FactoryGirl.build(:user_params) }
 
       it "creates and returns a new user" do
         post "/api/v1/users", params: params
