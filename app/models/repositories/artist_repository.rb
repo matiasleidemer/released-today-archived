@@ -2,12 +2,10 @@ module Repositories
   class ArtistRepository
     attr_reader :model
 
+    delegate :all, :find, :find_each, to: :model
+
     def initialize(model = Artist)
       @model = model
-    end
-
-    def find(id)
-      model.find(id)
     end
 
     def create_or_update(data)
@@ -18,6 +16,10 @@ module Repositories
 
       record.save
       record
+    end
+
+    def stale
+      model.where("updated_at < ?", Time.zone.now.yesterday)
     end
   end
 end
