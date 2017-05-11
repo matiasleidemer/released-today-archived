@@ -20,6 +20,7 @@ module Spotify
     end
 
     def image_url
+      return nil if data[:images].empty?
       data[:images].first[:url]
     end
 
@@ -29,7 +30,7 @@ module Spotify
     end
 
     def released_at
-      Date.parse(data[:release_date])
+      Date.parse(data[:release_date]) rescue nil
     end
 
     def attributes
