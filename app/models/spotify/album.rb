@@ -30,7 +30,10 @@ module Spotify
     end
 
     def released_at
-      Date.parse(data[:release_date]) rescue nil
+      date = data[:release_date]
+      date << "-01-01" if data[:release_date_precision] == "year"
+
+      Date.parse(date)
     end
 
     def attributes
