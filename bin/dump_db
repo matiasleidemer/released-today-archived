@@ -2,8 +2,8 @@
 remote = ARGV[0]
 
 app = {
-  'staging' => 'pmtotal-rails3-staging',
-  'production' => 'pmtotal-rails3-prodv5'
+  'staging' => 'released-staging',
+  'production' => 'released-production'
 }[remote]
 
 puts "Generating dump for #{remote}..."
@@ -19,6 +19,6 @@ puts 'Creating new database...'
 system 'bundle exec rake db:create:all'
 
 puts 'Populating...'
-system 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -d pmtotal_development latest.dump'
+system 'pg_restore --verbose --clean --no-acl --no-owner -h localhost -d released_development latest.dump'
 
 puts 'Done!'
