@@ -1,9 +1,9 @@
 module Spotify
   class Album
-    attr_reader :data
+    attr_reader :payload
 
-    def initialize(data)
-      @data = data
+    def initialize(payload)
+      @payload = payload.with_indifferent_access
     end
 
     def self.find(album_id, client = RSpotify::Album)
@@ -12,26 +12,26 @@ module Spotify
     end
 
     def name
-      data[:name]
+      payload[:name]
     end
 
     def spotify_id
-      data[:id]
+      payload[:id]
     end
 
     def image_url
-      return nil if data[:images].empty?
-      data[:images].first[:url]
+      return nil if payload[:images].empty?
+      payload[:images].first[:url]
     end
 
     def number_of_tracks
       # Seems to be from the client and not the api
-      data[:tracks_cache].size
+      payload[:tracks_cache].size
     end
 
     def released_at
-      date = data[:release_date]
-      date << "-01-01" if data[:release_date_precision] == "year"
+      date = payload[:release_date]
+      date << "-01-01" if payload[:release_date_precision] == "year"
 
       Date.parse(date)
     end
@@ -43,7 +43,7 @@ module Spotify
         image_url: image_url,
         number_of_tracks: number_of_tracks,
         released_at: released_at,
-        metadata: data
+        metadata: payload
       }
     end
   end

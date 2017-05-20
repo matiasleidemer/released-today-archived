@@ -1,9 +1,9 @@
 module Spotify
   class Artist
-    attr_reader :data
+    attr_reader :payload
 
-    def initialize(data)
-      @data = data
+    def initialize(payload)
+      @payload = payload.with_indifferent_access
     end
 
     def self.find(artist_id, client = RSpotify::Artist)
@@ -21,22 +21,22 @@ module Spotify
     end
 
     def name
-      data[:name]
+      payload[:name]
     end
 
     def spotify_id
-      data[:id]
+      payload[:id]
     end
 
     def metadata
-      data
+      payload
     end
 
     def attributes
       {
         name: name,
         spotify_id: spotify_id,
-        metadata: data
+        metadata: payload
       }
     end
   end
