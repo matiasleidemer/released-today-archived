@@ -5,7 +5,7 @@
 
   <div class="ten wide column vertical right aligned">
     <div>
-      <%= "Hello, #{current_user.name}" %>.
+      <%= "Hello, #{current_user.uid}" %>.
       <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
     </div>
   </div>
