@@ -9,7 +9,7 @@ class FetchNewReleasesJob < ApplicationJob
     puts "RestClient::TooManyRequests raised, waiting #{timeout} seconds..."
     sleep(timeout)
 
-    Spotify::ReleasesSyncer.call
+    perform
   rescue Exception => error
     Bugsnag.notify(error)
     raise error
