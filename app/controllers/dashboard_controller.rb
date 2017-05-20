@@ -4,6 +4,8 @@ class DashboardController < ApplicationController
   def index
     @albums = Album.joins(artist: :users)
                    .where('artists_users.user_id = ?', current_user.id)
-                   .order('released_at DESC').includes(:artist).limit(9)
+                   .order('released_at DESC NULLS LAST').includes(:artist)
+                   .page(params[:page])
+                   .per(9)
   end
 end

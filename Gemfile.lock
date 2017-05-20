@@ -301,6 +301,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (~> 3.0.5)
   omniauth-spotify
   pg (~> 0.18)

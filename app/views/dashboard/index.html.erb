@@ -30,10 +30,14 @@
         </div>
 
         <div class="extra content">
-          <div class="right floated created"><i class="unordered calendar icon"></i><%= I18n.l(album.released_at, format: :short_with_year) %></div>
+          <div class="right floated created"><i class="unordered calendar icon"></i>
+            <%= I18n.l(album.released_at, format: :short_with_year) %>
+          </div>
           <div><i class="unordered list icon"></i><%= pluralize(album.number_of_tracks, 'Track') %></div>
         </div>
       </div>
     </div>
   <% end %>
 </div>
+
+<%= paginate @albums %>
