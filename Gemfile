@@ -7,7 +7,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.0.3'
+gem 'rails', '~> 5.1.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
@@ -19,7 +19,7 @@ gem 'rspotify'
 gem 'devise'
 gem 'omniauth-spotify'
 gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
-gem 'administrate'
+gem 'administrate', github: 'thoughtbot/administrate'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'factory_girl_rails', '~> 4.0'
 gem 'bugsnag'

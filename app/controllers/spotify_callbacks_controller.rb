@@ -7,7 +7,7 @@ class SpotifyCallbacksController < Devise::OmniauthCallbacksController
       sign_in user
       redirect_to dashboard_url, notice: "Logged in successfully"
     else
-      redirect_to root_url, flash: "Something went wrong"
+      redirect_to root_url, notice: "Something went wrong"
     end
   end
 
