@@ -2,6 +2,8 @@ module Repositories
   class AlbumRepository
     attr_reader :model
 
+    delegate_missing_to :@model
+
     def initialize(model = Album)
       @model = model
     end

@@ -2,7 +2,7 @@ module Repositories
   class ArtistRepository
     attr_reader :model
 
-    delegate :all, :find, :find_each, to: :model
+    delegate_missing_to :@model
 
     def initialize(model = Artist)
       @model = model
