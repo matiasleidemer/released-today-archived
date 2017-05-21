@@ -13,14 +13,7 @@ module Api
       end
 
       def add_artists
-        artists = Spotify::Artist.find_all(artists_ids)
-        artist_repository = Repositories::ArtistRepository.new
-
-        artists.each do |artist|
-          current_user.follow_artist(
-            artist_repository.create_or_update(artist.attributes)
-          )
-        end
+        Spotify::FollowArtists.call(user: current_user, artists_ids: artists_ids)
 
         head :created
       end
