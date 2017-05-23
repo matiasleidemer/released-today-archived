@@ -10,55 +10,78 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170511032353) do
+ActiveRecord::Schema.define(version: 20170523030439) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "albums", force: :cascade do |t|
-    t.integer  "artist_id",        null: false
-    t.string   "spotify_id",       null: false
-    t.string   "name",             null: false
-    t.string   "image_url"
-    t.integer  "number_of_tracks", null: false
-    t.date     "released_at"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
-    t.index ["artist_id"], name: "index_albums_on_artist_id", using: :btree
-    t.index ["spotify_id"], name: "index_albums_on_spotify_id", using: :btree
-  end
-
-  create_table "artists", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "spotify_id", null: false
-    t.json     "metadata"
+  create_table "album_notifications", id: false, force: :cascade do |t|
+    t.bigint "album_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["spotify_id"], name: "index_artists_on_spotify_id", using: :btree
+    t.index ["album_id"], name: "index_album_notifications_on_album_id"
+    t.index ["user_id"], name: "index_album_notifications_on_user_id"
   end
 
-  create_table "artists_users", force: :cascade do |t|
+  create_table "albums", id: :serial, force: :cascade do |t|
+    t.integer "artist_id", null: false
+    t.string "spotify_id", null: false
+    t.string "name", null: false
+    t.string "image_url"
+    t.integer "number_of_tracks", null: false
+    t.date "released_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
+    t.index ["spotify_id"], name: "index_albums_on_spotify_id"
+  end
+
+  create_table "artists", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "spotify_id", null: false
+    t.json "metadata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spotify_id"], name: "index_artists_on_spotify_id"
+  end
+
+  create_table "artists_users", id: :serial, force: :cascade do |t|
     t.integer "artist_id"
     t.integer "user_id"
-    t.index ["artist_id"], name: "index_artists_users_on_artist_id", using: :btree
-    t.index ["user_id"], name: "index_artists_users_on_user_id", using: :btree
+    t.index ["artist_id"], name: "index_artists_users_on_artist_id"
+    t.index ["user_id"], name: "index_artists_users_on_user_id"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email",                      null: false
-    t.string   "provider",                   null: false
-    t.string   "uid",                        null: false
-    t.json     "metadata"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "admin",      default: false, null: false
-    t.string   "token"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["token"], name: "index_users_on_token", using: :btree
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "album_id"
+    t.datetime "sent_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["album_id"], name: "index_notifications_on_album_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
+  create_table "users", id: :serial, force: :cascade do |t|
+    t.string "name"
+    t.string "email", null: false
+    t.string "provider", null: false
+    t.string "uid", null: false
+    t.json "metadata"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "admin", default: false, null: false
+    t.string "token"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["token"], name: "index_users_on_token"
+  end
+
+  add_foreign_key "album_notifications", "albums"
+  add_foreign_key "album_notifications", "users"
   add_foreign_key "albums", "artists"
   add_foreign_key "artists_users", "artists"
   add_foreign_key "artists_users", "users"
+  add_foreign_key "notifications", "albums"
+  add_foreign_key "notifications", "users"
 end
