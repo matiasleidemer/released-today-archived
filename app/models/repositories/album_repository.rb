@@ -8,8 +8,8 @@ module Repositories
       @model = model
     end
 
-    def create_or_update(data)
-      record = model.find_or_initialize_by(spotify_id: data[:spotify_id]) do |instance|
+    def create(data)
+      record = model.new(spotify_id: data[:spotify_id]) do |instance|
         instance.artist_id        = data[:artist_id]
         instance.name             = data[:name]
         instance.image_url        = data[:image_url]
