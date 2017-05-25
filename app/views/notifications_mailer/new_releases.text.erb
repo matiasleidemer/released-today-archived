@@ -1,0 +1,13 @@
+You got new releases.
+
+Hello <%= @user.uid %>, looks like you have some new album releases. Awesome!
+
+<% @releases.each do |album| %>
+  <%= album.name %> by <%= album.artist.name %> was released on <%= I18n.l(album.released_at, format: :short_with_year) %>
+<% end %>
+
+I hope you enjoy!
+
+Best,
+
+Matias L.
