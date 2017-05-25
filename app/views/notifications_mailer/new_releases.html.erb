@@ -1,21 +1,15 @@
-<h2>You got new releases</h2>
-
 <p>Hello <%= @user.uid %>, looks like you have some new album releases. Awesome!</p>
-
-<br />
 
 <ul>
   <% @releases.each do |album| %>
     <li>
       <%= link_to album.name, "https://open.spotify.com/album/#{album.spotify_id}" %>
-      by <%= album.artist.name %>
+      by <%= link_to album.artist.name, "https://open.spotify.com/artist/#{album.artist.spotify_id}" %>
       was released on <%= I18n.l(album.released_at, format: :short_with_year) %>
     </li>
   <% end %>
 </ul>
 
-<p>I hope you enjoy!</p>
-
-<p>Best,</p>
+<p>I hope you enjoy! Best,</p>
 
 <p>Matias L.</p>
