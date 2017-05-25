@@ -8,7 +8,7 @@ class FetchNewReleases
       puts "RestClient::TooManyRequests raised, waiting #{timeout} seconds..."
       sleep(timeout)
 
-      perform
+      call
     rescue Exception => error
       Bugsnag.notify(error)
       raise error
