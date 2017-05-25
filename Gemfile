@@ -24,6 +24,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'factory_girl_rails', '~> 4.0'
 gem 'bugsnag'
 gem 'kaminari'
+gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'byebug', platform: :mri
