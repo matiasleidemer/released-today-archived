@@ -1,12 +1,8 @@
 namespace :releases do
   desc "Sync the latest releases from all artists"
   task sync: :environment do
-    puts "Starting releases sync"
-    FetchNewReleasesJob.new.perform
-
-    puts "Sending emails"
-    SendNewReleasesJob.new.perform
-
-    puts "Finished!"
+    puts "Starting fetch and send new releases"
+    FetchAndSendNewReleasesJob.perform_later
+    puts "Job enqueued"
   end
 end
