@@ -25,6 +25,7 @@ gem 'factory_girl_rails', '~> 4.0'
 gem 'bugsnag'
 gem 'kaminari'
 gem 'sendgrid-ruby'
+gem 'sidekiq'
 
 group :development, :test do
   gem 'byebug', platform: :mri
