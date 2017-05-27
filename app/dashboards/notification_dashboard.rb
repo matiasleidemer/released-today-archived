@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class ArtistDashboard < Administrate::BaseDashboard
+class NotificationDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,10 +9,11 @@ class ArtistDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    name: Field::String,
-    albums: Field::HasMany,
-    spotify_id: Field::String,
-    metadata: Field::String.with_options(searchable: false),
+    user: Field::BelongsTo,
+    album: Field::BelongsTo,
+    sent_at: Field::DateTime,
+    created_at: Field::DateTime,
+    updated_at: Field::DateTime,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -22,35 +23,35 @@ class ArtistDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
-    :name,
-    :albums,
-    :spotify_id,
+    :user,
+    :album,
+    :sent_at,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
     :id,
-    :name,
-    :albums,
-    :spotify_id,
-    :metadata,
+    :user,
+    :album,
+    :sent_at,
+    :created_at,
+    :updated_at,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :albums,
-    :name,
-    :spotify_id,
-    :metadata,
+    :user,
+    :album,
+    :sent_at,
   ].freeze
 
-  # Overwrite this method to customize how artists are displayed
+  # Overwrite this method to customize how notifications are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(artist)
-    artist.name
-  end
+  # def display_resource(notification)
+  #   "Notification ##{notification.id}"
+  # end
 end

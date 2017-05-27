@@ -14,6 +14,7 @@ class UserDashboard < Administrate::BaseDashboard
     admin: Field::Boolean,
     provider: Field::String,
     uid: Field::String,
+    token: Field::String,
     metadata: Field::String.with_options(searchable: false),
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -42,6 +43,7 @@ class UserDashboard < Administrate::BaseDashboard
     :admin,
     :provider,
     :uid,
+    :token,
     :metadata,
     :created_at,
     :updated_at,
@@ -56,7 +58,7 @@ class UserDashboard < Administrate::BaseDashboard
     :admin,
     :provider,
     :uid,
-    :metadata,
+    :token
   ].freeze
 
   # Overwrite this method to customize how users are displayed

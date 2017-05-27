@@ -8,8 +8,8 @@ class AlbumDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
-    artist: Field::BelongsTo,
     id: Field::Number,
+    artist: Field::BelongsTo,
     spotify_id: Field::String,
     name: Field::String,
     image_url: Field::String,
@@ -26,17 +26,17 @@ class AlbumDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :id,
+    :name,
     :artist,
     :released_at,
-    :name,
     :spotify_id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :artist,
     :id,
+    :artist,
     :spotify_id,
     :name,
     :image_url,
@@ -61,7 +61,7 @@ class AlbumDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how albums are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(album)
-  #   "Album ##{album.id}"
-  # end
+  def display_resource(album)
+    album.name
+  end
 end
