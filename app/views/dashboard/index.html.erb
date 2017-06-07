@@ -5,13 +5,23 @@
 
   <div class="ten wide column vertical right aligned">
     <div>
-      <%= "Hello, #{current_user.uid}" %>.
+      <%= "Hello, #{current_user.name.split(' ').first}" %>.
       <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
     </div>
   </div>
 </div>
 
 <h2>Albums</h2>
+
+<% if @albums.empty? %>
+  <br />
+  <br />
+  <div class="ui text container center aligned">
+    <h3>We're fetching your latests albums based on your top 50 artists.</h3>
+    <h3>This might take a few moments</h3>
+    <h3>Refresh at will</h3>
+  </div>
+<% end %>
 
 <div class="ui three column stackable grid">
   <% @albums.each do |album| %>
