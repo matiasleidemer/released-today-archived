@@ -13,4 +13,8 @@ class User < ApplicationRecord
     return if artists.include?(artist)
     artists << artist
   end
+
+  def hash_metadata
+    JSON.parse(metadata).with_indifferent_access
+  end
 end

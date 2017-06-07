@@ -4,6 +4,7 @@ class SpotifyCallbacksController < Devise::OmniauthCallbacksController
     user = repository.create_from_omniauth(request.env["omniauth.auth"])
 
     if user.persisted?
+      FetchNewUserArtistsJob.perform_later(user) if user.artists.empty?
       sign_in user
       redirect_to dashboard_url, notice: "Logged in successfully"
     else
