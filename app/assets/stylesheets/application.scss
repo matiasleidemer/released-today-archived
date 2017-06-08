@@ -1,30 +1,66 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
 
-$font-url: 'https://fonts.googleapis.com/css?family=Rubik';
-$font-family: 'Rubik', serif;
-// $font-family: system, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Lucida Grande";
+$color-primary: #F9282B;
+$color-secondary: #FFFFFF;
+$color-text: #7E919C;
 
-@import "semantic-ui";
+$background-color: #232A2F;
 
-div.content {
-  margin-top: 30px;
+html {
+  height: 100%;
 }
 
-nav.pagination {
-  margin: 30px;
+body {
+  min-height: 100%;
+  font-family: Open Sans;
+  color: $color-text;
+  background: $background-color;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $color-primary;
+}
+
+.button {
+  display: inline-block;
+  color: $color-secondary;
+  background: $color-primary;
+  font-weight: 600;
+  line-height: 1;
   text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.button--huge {
+  font-size: 16px;
+  padding: 19px 50px;
+  border-radius: 27px;
+}
+
+.landing-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sign-up__logo {
+  display: block;
+  width: 376px;
+  height: 50px;
+  margin: 0 auto;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.sign-up__slogan {
+  font-size: 20px;
+  font-weight: 300;
+  color: $color-secondary;
+  margin: 15px 0 50px;
 }

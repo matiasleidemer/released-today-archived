@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Released</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+  </head>
+
+  <body class="landing-page">
+    <%= render 'shared/icons' %>
+
+    <% flash.each do |key, value| %>
+      <div class="ui tiny message">
+        <%= value %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
+

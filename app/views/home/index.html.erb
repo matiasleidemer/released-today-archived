@@ -1,6 +1,14 @@
-<div class="ui container center aligned">
-  <h1 class="ui header">Welcome to <i>Released</i></h1>
-  <div class="ui huge">
-    <%= link_to "Sign in with Spotify", user_spotify_omniauth_authorize_path %>
-  </div>
+<div class="sign-up">
+  <span class="sign-up__logo icon">
+    <svg>
+      <use xlink:href="#released-logo"></use>
+    </svg>
+  </span>
+
+  <h1 class="sign-up__slogan">
+    Track new music releases from your favorite artists
+  </h1>
+
+  <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path,
+    class: 'button button--huge' %>
 </div>
