@@ -7,7 +7,10 @@ module Spotify
       def call(artist:, artist_client: RSpotify::Artist, album_client: RSpotify::Album)
         spotify_artist = artist_client.new(artist.metadata)
 
-        album_client.find(albums_ids(spotify_artist)).map do |payload|
+        artist_albums_ids = albums_ids(spotify_artist)
+        return if artist_albums_ids.empty?
+
+        album_client.find(artist_albums_ids).map do |payload|
           album_data = JSON.parse(payload.to_json).with_indifferent_access
           Spotify::Album.new(album_data)
         end
