@@ -8,7 +8,7 @@ module Spotify
         spotify_artist = artist_client.new(artist.metadata)
 
         artist_albums_ids = albums_ids(spotify_artist)
-        return if artist_albums_ids.empty?
+        return [] if artist_albums_ids.empty?
 
         album_client.find(artist_albums_ids).map do |payload|
           album_data = JSON.parse(payload.to_json).with_indifferent_access
