@@ -17,4 +17,8 @@ class User < ApplicationRecord
   def hash_metadata
     JSON.parse(metadata).with_indifferent_access
   end
+
+  def first_name
+    name.split(' ').first.titleize
+  end
 end
