@@ -1,4 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'matiasleidemer@gmail.com'
+  default from: 'notifier@released.today',
+          reply_to: 'matias@released.today'
   layout 'mailer'
 end
