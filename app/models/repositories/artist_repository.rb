@@ -19,7 +19,7 @@ module Repositories
     end
 
     def stale
-      model.where("updated_at < ?", Time.zone.now.yesterday)
+      model.where("updated_at < ?", 22.hours.ago)
     end
   end
 end
