@@ -14,13 +14,14 @@ module Repositories
       model.find_by(params)
     end
 
-    def create_from_omniauth(auth)
+    def find_or_create_from_omniauth(auth)
       model.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
         user.uid = auth.uid
         user.provider = auth.provider
         user.name = auth.info.name
         user.email = auth.info.email
         user.metadata = auth.to_json
+        user.token ||= generate_token
       end
     end
 
@@ -31,24 +32,23 @@ module Repositories
       record.name = data[:name]
       record.email = data[:email]
       record.metadata = data[:metadata] && data[:metadata].to_json
+      record.token = generate_token
 
-      if record.save
-        generate_token_for_user(record)
-      end
+      record.save
 
       record
     end
 
     private
 
-    def generate_token_for_user(user)
+    def generate_token
       token = SecureRandom.hex(20)
 
-      while model.where(token: token).count > 0 do
+      while model.where(token: token).count > 0
         token = SecureRandom.hex(20)
       end
 
-      user.update_column(:token, token)
+      token
     end
   end
 end
