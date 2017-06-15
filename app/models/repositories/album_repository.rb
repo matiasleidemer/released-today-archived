@@ -15,6 +15,7 @@ module Repositories
         instance.image_url        = data[:image_url]
         instance.number_of_tracks = data[:number_of_tracks]
         instance.released_at      = data[:released_at]
+        instance.metadata         = data[:metadata]
       end
 
       record.save
