@@ -1,0 +1,47 @@
+.album-card__image-container {
+  position: relative;
+}
+
+.album-card__image {
+  display: block;
+  width: 100%;
+}
+
+.album-card__content {
+  margin-top: 20px;
+}
+
+.album-card__artist-name {
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  color: $color-secondary;
+  line-height: 1;
+}
+
+.album-card__album-name {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 5px;
+
+  a {
+    color: $color-secondary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.album-card__release-infos {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 10px;
+
+  color: $color-text;
+}

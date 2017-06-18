@@ -1,0 +1,11 @@
+.album-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.album-grid__cell {
+  width: 25%;
+  padding: 0 15px 60px;
+}

@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-size: 14px;
+  font-family: Open Sans;
+  color: $color-text;
+  background: $background-color;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $color-primary;
+}

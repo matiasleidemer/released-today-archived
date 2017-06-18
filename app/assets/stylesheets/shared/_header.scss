@@ -1,0 +1,25 @@
+.header {
+  padding: 30px 0;
+}
+
+.header__logo {
+  width: 226px;
+  height: 30px;
+}
+
+.header__welcome {
+  margin: 0;
+
+  strong {
+    font-weight: 600;
+  }
+
+  a {
+    color: $color-secondary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

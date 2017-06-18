@@ -7,9 +7,9 @@
     </p>
   <% end %>
 
-  <div class="product-grid">
+  <div class="album-grid">
     <% @albums.each do |album| %>
-      <div class="product-grid__cell">
+      <div class="album-grid__cell">
         <%= render 'shared/album_card', album: album %>
       </div>
     <% end %>
