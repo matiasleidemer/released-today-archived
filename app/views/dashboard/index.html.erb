@@ -1,53 +1,19 @@
-<div class="ui two column grid middle aligned">
-  <div class="six wide column">
-    <h1 class="ui header blue"><i><b>Released</b></i></h1>
-  </div>
-
-  <div class="ten wide column vertical right aligned">
-    <div>
-      <%= "Hello, #{current_user.first_name}" %>.
-      <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
-    </div>
-  </div>
-</div>
-
-<h2>Albums</h2>
-
-<% if @albums.empty? %>
-  <br />
-  <br />
-  <div class="ui text container center aligned">
-    <h3>We're fetching your latests albums based on your top 50 artists.</h3>
-    <h3>This might take a few moments</h3>
-    <h3>Refresh at will</h3>
-  </div>
-<% end %>
-
-<div class="ui three column stackable grid">
-  <% @albums.each do |album| %>
-    <div class="column">
-      <div class="ui centered card">
-        <div class="image">
-          <%= image_tag album.image_url %>
-        </div>
-        <div class="content">
-          <div class="header">
-            <%= album.artist.name %>
-          </div>
-          <div class="meta">
-            <%= link_to album.name, "https://open.spotify.com/album/#{album.spotify_id}", class: "group" %>
-          </div>
-        </div>
-
-        <div class="extra content">
-          <div class="right floated created"><i class="unordered calendar icon"></i>
-            <%= I18n.l(album.released_at, format: :short_with_year) %>
-          </div>
-          <div><i class="unordered list icon"></i><%= pluralize(album.number_of_tracks, 'Track') %></div>
-        </div>
-      </div>
-    </div>
+<div>
+  <% if @albums.empty? %>
+    <p class="fetching-message">
+      We're fetching your latests albums based on your top 50 artists. <br />
+      This might take a few moments. <br />
+      Refresh at will.
+    </p>
   <% end %>
+
+  <div class="product-grid">
+    <% @albums.each do |album| %>
+      <div class="product-grid__cell">
+        <%= render 'shared/album_card', album: album %>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <%= paginate @albums %>

@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="grid grid--space-between grid--vertical-middle">
+    <div class="grid__cell">
+      <div class="header__logo">
+        <div class="icon">
+          <svg>
+            <use xlink:href="#released-logo"></use>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid__cell">
+      <p class="header__welcome">
+        Hello,
+        <strong>
+          <%= current_user.name.split(' ').first %>.
+        </strong>
+        <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
+      </p>
+    </div>
+  </div>
+</header>

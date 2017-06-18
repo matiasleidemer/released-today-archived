@@ -6,23 +6,24 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="landing-page">
     <%= render 'shared/icons' %>
 
-    <div class="container">
-      <%= render 'shared/header' %>
+    <%= yield %>
 
-      <div class="main">
+    <% if flash.present? %>
+      <div class="flash-message-container">
         <% flash.each do |key, value| %>
           <div class="flash-message flash-message--<%= key %>">
             <%= value %>
           </div>
         <% end %>
-
-        <%= yield %>
       </div>
-    </div>
+    <% end %>
   </body>
 </html>
+

@@ -1,11 +1,4 @@
 GIT
-  remote: https://github.com/doabit/semantic-ui-sass.git
-  revision: 308d74a16d9acad903cd20f829634aa92d68699c
-  specs:
-    semantic-ui-sass (2.2.9.3)
-      sass (>= 3.2)
-
-GIT
   remote: https://github.com/thoughtbot/administrate.git
   revision: 164fdf8257b12b0fee59589ec47bbac04fc9d13a
   specs:
@@ -332,7 +325,6 @@ DEPENDENCIES
   rspec-rails (~> 3.5)
   rspotify
   sass-rails (~> 5.0)
-  semantic-ui-sass!
   sendgrid-ruby
   sidekiq
   spring
@@ -346,4 +338,4 @@ RUBY VERSION
    ruby 2.3.4p301
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
