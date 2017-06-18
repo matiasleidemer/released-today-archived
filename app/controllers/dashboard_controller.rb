@@ -7,6 +7,6 @@ class DashboardController < ApplicationController
                    .order('released_at DESC NULLS LAST')
                    .includes(:artist)
                    .page(params[:page])
-                   .per(9)
+                   .per(12)
   end
 end

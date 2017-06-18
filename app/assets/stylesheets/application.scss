@@ -1,9 +1,12 @@
-
 $color-primary: #F9282B;
 $color-secondary: #FFFFFF;
 $color-text: #7E919C;
 
 $background-color: #232A2F;
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   height: 100%;
@@ -11,6 +14,7 @@ html {
 
 body {
   min-height: 100%;
+  font-size: 14px;
   font-family: Open Sans;
   color: $color-text;
   background: $background-color;
@@ -20,6 +24,16 @@ body {
 
 a {
   color: $color-primary;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .button {
@@ -51,11 +65,6 @@ a {
   width: 376px;
   height: 50px;
   margin: 0 auto;
-
-  svg {
-    width: 100%;
-    height: 100%;
-  }
 }
 
 .sign-up__slogan {
@@ -63,4 +72,189 @@ a {
   font-weight: 300;
   color: $color-secondary;
   margin: 15px 0 50px;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1160px;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+
+  &--space-between {
+    justify-content: space-between;
+  }
+
+  &--vertical-middle {
+    align-items: center;
+  }
+
+  &__cell {
+    padding: 0 15px;
+  }
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.product-grid__cell {
+  width: 25%;
+  padding: 0 15px 60px;
+}
+
+.album-card__image-container {
+  position: relative;
+}
+
+.album-card__image {
+  display: block;
+  width: 100%;
+}
+
+.album-card__content {
+  margin-top: 20px;
+}
+
+.album-card__artist-name {
+  display: block;
+  font-weight: 600;
+  font-size: 18px;
+  color: $color-secondary;
+  line-height: 1;
+}
+
+.album-card__album-name {
+  display: block;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 1;
+  margin-top: 5px;
+
+  a {
+    color: $color-secondary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.album-card__release-infos {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  margin-top: 10px;
+
+  color: $color-text;
+}
+
+.header {
+  padding: 30px 0;
+}
+
+.header__logo {
+  width: 226px;
+  height: 30px;
+}
+
+.header__welcome {
+  margin: 0;
+
+  strong {
+    font-weight: 600;
+  }
+
+  a {
+    color: $color-secondary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.main {
+  margin-top: 40px;
+}
+
+.pagination {
+  text-align: center;
+  padding-bottom: 60px;
+  font-size: 16px;
+
+  a {
+    color: $color-secondary;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .first,
+  .prev,
+  .next,
+  .last {
+    margin: 0 3px;
+  }
+
+  .page {
+    margin: 0 3px;
+
+    .current {
+      font-weight: 600;
+    }
+  }
+}
+
+.fetching-message {
+  text-align: center;
+  font-weight: 200;
+  color: $color-secondary;
+  font-size: 24px;
+  line-height: 1.5;
+}
+
+.flash-message {
+  padding: 20px 30px;
+  font-weight: 600px;
+  font-size: 16px;
+  background: #FCB007;
+  color: $color-secondary;
+
+  &--success {
+    background-color: #7CCC08;
+  }
+
+  &--error {
+    background-color: #F9282B;
+  }
+}
+
+.main .flash-message {
+  margin-bottom: 30px;
+}
+
+.landing-page {
+  .flash-message-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .flash-message {
+    margin-bottom: 30px;
+  }
 }

@@ -9,14 +9,18 @@
   </head>
 
   <body>
-    <div id="application" class="ui container">
-      <% flash.each do |key, value| %>
-        <div class="ui tiny message">
-          <%= value %>
-        </div>
-      <% end %>
+    <%= render 'shared/icons' %>
 
-      <div class="body content">
+    <div class="container">
+      <%= render 'shared/header' %>
+
+      <div class="main">
+        <% flash.each do |key, value| %>
+          <div class="flash-message flash-message--<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
+
         <%= yield %>
       </div>
     </div>

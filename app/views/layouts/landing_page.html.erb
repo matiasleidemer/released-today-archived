@@ -13,13 +13,17 @@
   <body class="landing-page">
     <%= render 'shared/icons' %>
 
-    <% flash.each do |key, value| %>
-      <div class="ui tiny message">
-        <%= value %>
+    <%= yield %>
+
+    <% if flash.present? %>
+      <div class="flash-message-container">
+        <% flash.each do |key, value| %>
+          <div class="flash-message flash-message--<%= key %>">
+            <%= value %>
+          </div>
+        <% end %>
       </div>
     <% end %>
-
-    <%= yield %>
   </body>
 </html>
 
