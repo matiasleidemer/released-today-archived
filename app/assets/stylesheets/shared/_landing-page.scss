@@ -1,0 +1,17 @@
+.landing-page {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .flash-message-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .flash-message {
+    margin-bottom: 30px;
+  }
+}
