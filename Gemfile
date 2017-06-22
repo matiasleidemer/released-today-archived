@@ -25,6 +25,7 @@ gem 'bugsnag'
 gem 'kaminari'
 gem 'sendgrid-ruby'
 gem 'sidekiq'
+gem 'foreman'
 
 group :development, :test do
   gem 'byebug', platform: :mri
