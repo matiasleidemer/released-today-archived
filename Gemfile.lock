@@ -101,6 +101,7 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    encrypted_strings (0.3.3)
     erubi (1.6.0)
     execjs (2.7.0)
     factory_girl (4.8.0)
@@ -315,6 +316,7 @@ DEPENDENCIES
   database_cleaner
   devise
   dotenv-rails
+  encrypted_strings
   factory_girl_rails (~> 4.0)
   foreman
   jbuilder (~> 2.5)
