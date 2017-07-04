@@ -58,7 +58,8 @@ class UserDashboard < Administrate::BaseDashboard
     :admin,
     :provider,
     :uid,
-    :token
+    :token,
+    :metadata
   ].freeze
 
   # Overwrite this method to customize how users are displayed
