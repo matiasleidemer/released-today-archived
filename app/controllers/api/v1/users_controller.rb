@@ -22,7 +22,9 @@ module Api
       end
 
       def resource_params
-        params.permit(:name, :email, :provider, :uid, :metadata)
+        params.permit(:name, :email, :provider, :uid, :metadata).tap do |whitelist|
+          whitelist[:metadata] = params[:metadata]
+        end
       end
     end
   end

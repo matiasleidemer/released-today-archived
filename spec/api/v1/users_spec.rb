@@ -26,7 +26,11 @@ RSpec.describe "Users API", type: :request do
 
   describe "POST create" do
     context "with valid parameters" do
-      let(:params) { FactoryGirl.build(:user_params) }
+      let(:params) do
+        FactoryGirl
+          .build(:user_params)
+          .merge(metadata: { foo: :bar })
+      end
 
       it "creates and returns a new user" do
         post "/api/v1/users", params: params
@@ -39,7 +43,7 @@ RSpec.describe "Users API", type: :request do
             email: user.email,
             provider: user.provider,
             uid: user.uid,
-            metadata: user.metadata,
+            metadata: { foo: :bar }.to_json,
             token: user.token
           }
         }
