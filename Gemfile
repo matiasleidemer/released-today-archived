@@ -26,6 +26,7 @@ gem 'kaminari'
 gem 'sendgrid-ruby'
 gem 'sidekiq'
 gem 'foreman'
+gem 'encrypted_strings', require: false
 
 group :development, :test do
   gem 'byebug', platform: :mri
