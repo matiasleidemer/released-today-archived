@@ -46,4 +46,5 @@ group :test do
   gem 'database_cleaner'
   gem 'vcr'
   gem 'webmock'
+  gem 'timecop'
 end
