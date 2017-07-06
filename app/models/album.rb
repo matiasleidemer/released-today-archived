@@ -8,4 +8,8 @@ class Album < ApplicationRecord
   def followers
     artist.users
   end
+
+  def released_today?
+    released_at.today?
+  end
 end
