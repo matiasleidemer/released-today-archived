@@ -18,6 +18,7 @@ module Spotify
             album = album_repository.create(attributes)
 
             next unless send_notification
+            next unless album.released_today?
 
             album.followers.each do |follower|
               notification_repository.create(album: album, user: follower)
