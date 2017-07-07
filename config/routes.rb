@@ -35,5 +35,5 @@ Rails.application.routes.draw do
 
   # Custom spotify swap/refresh tokens. Needed for iOS token generation
   post "spotify/tokens/swap", to: "spotify_tokens#swap"
-  post "spotify/tokens/refresh", to: "spotify_tokens#swap"
+  post "spotify/tokens/refresh", to: "spotify_tokens#refresh"
 end
