@@ -24,6 +24,23 @@ RSpec.describe "Users API", type: :request do
     end
   end
 
+  describe "GET find" do
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'returns the user with the provided email' do
+      get "/api/v1/users/find", params: { email: user.email }
+      payload = ActiveModelSerializers::SerializableResource.new(user, {})
+
+      expect(response.body).to eql(payload.to_json)
+    end
+
+    it "returns nil when the user doesn't exist" do
+      get "/api/v1/users/find", params: { email: 'foo@bar.com' }
+
+      expect(response.body).to eql(nil.to_json)
+    end
+  end
+
   describe "POST create" do
     context "with valid parameters" do
       let(:params) do

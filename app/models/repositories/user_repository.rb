@@ -2,6 +2,8 @@ module Repositories
   class UserRepository
     attr_reader :model
 
+    delegate_missing_to :@model
+
     def initialize(model = User)
       @model = model
     end
