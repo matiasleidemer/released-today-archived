@@ -25,7 +25,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:show, :create]
+      resources :users, only: [:show, :create] do
+        get 'find', on: :collection
+      end
 
       post "me/add_artists", to: "profile#add_artists"
       get  "me/releases",    to: "profile#releases"

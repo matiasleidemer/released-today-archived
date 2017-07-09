@@ -5,6 +5,10 @@ module Api
         render json: repository.find(params[:id])
       end
 
+      def find
+        render json: repository.find_by_email(params[:email])
+      end
+
       def create
         user = repository.create_from_api(resource_params)
 
