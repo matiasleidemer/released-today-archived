@@ -14,4 +14,13 @@
   .flash-message {
     margin-bottom: 30px;
   }
+
+  .email {
+    margin-top: 100px;
+
+    a {
+      color: $color-secondary;
+      text-decoration: none;
+    }
+  }
 }

@@ -6,9 +6,11 @@
   </span>
 
   <h1 class="sign-up__slogan">
-    Track new music releases from your favorite artists
+    Get an email with new music releases from your favorite artists
   </h1>
 
   <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path,
     class: 'button button--huge' %>
+
+  <p class="email"><%= link_to "Contact me", "mailto:matias@released.today" %></p>
 </div>
