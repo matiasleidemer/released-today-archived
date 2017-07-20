@@ -1,8 +1,10 @@
 require 'rails_helper'
+require 'released/jwt'
 
 RSpec.describe "Profile API", type: :request do
   let(:user) { FactoryGirl.create(:user) }
-  let(:headers) { { "X-Released-User-Token" => user.token } }
+  let(:jwt_token) { Released::Jwt.encode({ claims: { email: user.email } }) }
+  let(:headers) { { "Authorization" => "Bearer #{jwt_token}" } }
 
   describe "GET artists" do
     let(:artist) { FactoryGirl.create(:artist) }

@@ -8,25 +8,26 @@ git_source(:github) do |repo_name|
 end
 
 gem 'rails', '~> 5.1.1'
+gem 'active_model_serializers', '~> 0.10.0'
+gem 'administrate', github: 'thoughtbot/administrate'
+gem 'bugsnag'
+gem 'coffee-rails', '~> 4.2'
+gem 'devise'
+gem 'encrypted_strings', require: false
+gem 'factory_girl_rails', '~> 4.0'
+gem 'foreman'
+gem 'jbuilder', '~> 2.5'
+gem 'jquery-rails'
+gem 'jwt'
+gem 'kaminari'
+gem 'omniauth-spotify'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
-gem 'jquery-rails'
-gem 'jbuilder', '~> 2.5'
 gem 'rspotify'
-gem 'devise'
-gem 'omniauth-spotify'
-gem 'administrate', github: 'thoughtbot/administrate'
-gem 'active_model_serializers', '~> 0.10.0'
-gem 'factory_girl_rails', '~> 4.0'
-gem 'bugsnag'
-gem 'kaminari'
+gem 'sass-rails', '~> 5.0'
 gem 'sendgrid-ruby'
 gem 'sidekiq'
-gem 'foreman'
-gem 'encrypted_strings', require: false
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -41,6 +41,11 @@ module Repositories
       record
     end
 
+    def find_from_authorization(payload = {})
+      email = payload.dig("claims", "email")
+      model.find_by(email: email)
+    end
+
     private
 
     def generate_token

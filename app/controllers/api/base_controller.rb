@@ -1,3 +1,5 @@
+require 'released/jwt'
+
 module Api
   class BaseController < ApplicationController
     skip_before_action :verify_authenticity_token
@@ -12,15 +14,18 @@ module Api
 
     private
 
-    def authenticate_user
-      authenticate_api_key || render_unauthorized
+    def authorization
+      token = request.headers['Authorization'].split(" ").last
+      @authorization ||= Released::Jwt.decode(token).first
+    rescue JWT::DecodeError
+      {}
     end
 
-    def authenticate_api_key
-      token = request.headers['X-Released-User-Token']
-      repository = Repositories::UserRepository.new
-
-      @current_user = repository.find_by(token: token)
+    def authenticate_user
+      repo = Repositories::UserRepository.new
+      user = repo.find_from_authorization(authorization)
+      render_unauthorized if user.nil?
+      @current_user = user
     end
 
     def current_user
