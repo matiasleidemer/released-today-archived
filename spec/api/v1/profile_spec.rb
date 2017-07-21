@@ -3,15 +3,15 @@ require 'released/jwt'
 
 RSpec.describe "Profile API", type: :request do
   let(:user) { FactoryGirl.create(:user) }
-  let(:jwt_token) { Released::Jwt.encode({ claims: { email: user.email } }) }
-  let(:headers) { { "Authorization" => "Bearer #{jwt_token}" } }
+  let(:jwt) { Released::Jwt.encode({ claims: { email: user.email } }) }
+  let(:headers) { { "Authorization" => "Bearer #{jwt}" } }
 
   describe "GET artists" do
     let(:artist) { FactoryGirl.create(:artist) }
 
     before { user.follow_artist(artist) }
 
-    it_behaves_like "Profile API", :get, "/api/v1/me/artists"
+    it_behaves_like "Secure API", :get, "/api/v1/me/artists"
 
     it "returns the user's followed artists" do
       get "/api/v1/me/artists", headers: headers
@@ -38,7 +38,7 @@ RSpec.describe "Profile API", type: :request do
 
     before { user.follow_artist(artist) }
 
-    it_behaves_like "Profile API", :get, "/api/v1/me/releases"
+    it_behaves_like "Secure API", :get, "/api/v1/me/releases"
 
     it "returns the user's latest releases" do
       get "/api/v1/me/releases", headers: headers
@@ -67,7 +67,7 @@ RSpec.describe "Profile API", type: :request do
   end
 
   describe "POST add_artists" do
-    it_behaves_like "Profile API", :post, "/api/v1/me/add_artists"
+    it_behaves_like "Secure API", :post, "/api/v1/me/add_artists"
 
     it "creates new artists with the provided artists_ids parameter" do
       VCR.use_cassette "profile_add_artists" do

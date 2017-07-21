@@ -1,6 +1,8 @@
 module Api
   module V1
     class UsersController < Api::BaseController
+      before_action :authenticate_request
+
       def show
         render json: repository.find(params[:id])
       end
