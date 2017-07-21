@@ -1,4 +1,4 @@
-RSpec.shared_examples "Profile API" do |verb, endpoint|
+RSpec.shared_examples "Secure API" do |verb, endpoint|
   it "returns unauthorized if user token is invalid" do
     send(verb, endpoint, headers: { "Authorization" => "Bearer nope" })
 

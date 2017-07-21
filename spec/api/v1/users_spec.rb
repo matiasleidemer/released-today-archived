@@ -1,11 +1,16 @@
 require 'rails_helper'
+require 'released/jwt'
 
 RSpec.describe "Users API", type: :request do
   let(:user) { FactoryGirl.create(:user) }
+  let(:jwt) { Released::Jwt.encode({ claims: { roles: ['admin'] } }) }
+  let(:headers) { { "Authorization" => "Bearer #{jwt}" } }
 
   describe "GET show" do
+    it_behaves_like "Secure API", :get, "/api/v1/users/1"
+
     it "returns the user's data" do
-      get "/api/v1/users/#{user.id}"
+      get "/api/v1/users/#{user.id}", headers: headers
 
       result = {
         user: {
@@ -27,15 +32,17 @@ RSpec.describe "Users API", type: :request do
   describe "GET find" do
     let(:user) { FactoryGirl.create(:user) }
 
+    it_behaves_like "Secure API", :get, "/api/v1/users/find"
+
     it 'returns the user with the provided email' do
-      get "/api/v1/users/find", params: { email: user.email }
+      get "/api/v1/users/find", params: { email: user.email }, headers: headers
       payload = ActiveModelSerializers::SerializableResource.new(user, {})
 
       expect(response.body).to eql(payload.to_json)
     end
 
     it "returns nil when the user doesn't exist" do
-      get "/api/v1/users/find", params: { email: 'foo@bar.com' }
+      get "/api/v1/users/find", params: { email: 'foo@bar.com' }, headers: headers
 
       expect(response.body).to eql(nil.to_json)
     end
@@ -49,8 +56,10 @@ RSpec.describe "Users API", type: :request do
           .merge(metadata: { foo: :bar })
       end
 
+      it_behaves_like "Secure API", :post, "/api/v1/users"
+
       it "creates and returns a new user" do
-        post "/api/v1/users", params: params
+        post "/api/v1/users", params: params, headers: headers
         user = User.last
 
         result = {
@@ -81,7 +90,7 @@ RSpec.describe "Users API", type: :request do
       end
 
       it "returns the resource errors" do
-        post "/api/v1/users", params: params
+        post "/api/v1/users", params: params, headers: headers
 
         result = {
           errors: {

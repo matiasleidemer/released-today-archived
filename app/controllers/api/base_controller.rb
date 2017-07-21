@@ -15,10 +15,15 @@ module Api
     private
 
     def authorization
-      token = request.headers['Authorization'].split(" ").last
+      token = (request.headers['Authorization'] || "").split(" ").last
       @authorization ||= Released::Jwt.decode(token).first
     rescue JWT::DecodeError
       {}
+    end
+
+    def authenticate_request
+      roles = authorization.dig("claims", "roles") || []
+      render_unauthorized unless roles.include?("admin")
     end
 
     def authenticate_user
