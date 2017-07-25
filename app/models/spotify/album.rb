@@ -31,7 +31,14 @@ module Spotify
 
     def released_at
       date = payload[:release_date]
-      date << "-01-01" if payload[:release_date_precision] == "year"
+      date << case payload[:release_date_precision]
+      when "year"
+        "-01-01"
+      when "month"
+        "-01"
+      else
+        ""
+      end
 
       Date.parse(date)
     end
