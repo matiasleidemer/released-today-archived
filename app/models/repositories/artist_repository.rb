@@ -19,7 +19,9 @@ module Repositories
     end
 
     def stale
-      model.where("updated_at < ?", 22.hours.ago)
+      model
+        .where("updated_at < ?", 22.hours.ago)
+        .where("disabled_at is null")
     end
   end
 end
