@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170615172927) do
+ActiveRecord::Schema.define(version: 20170726002443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20170615172927) do
     t.json "metadata"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "disabled_at"
+    t.index ["disabled_at"], name: "index_artists_on_disabled_at"
     t.index ["spotify_id"], name: "index_artists_on_spotify_id"
   end
 
