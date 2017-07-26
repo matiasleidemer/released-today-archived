@@ -12,6 +12,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     name: Field::String,
     albums: Field::HasMany,
     spotify_id: Field::String,
+    disabled_at: Field::DateTime,
     metadata: Field::String.with_options(searchable: false),
   }.freeze
 
@@ -24,6 +25,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :albums,
+    :disabled_at,
     :spotify_id,
   ].freeze
 
@@ -33,6 +35,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :albums,
+    :disabled_at,
     :spotify_id,
     :metadata,
   ].freeze
@@ -43,6 +46,7 @@ class ArtistDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :albums,
     :name,
+    :disabled_at,
     :spotify_id,
     :metadata,
   ].freeze
