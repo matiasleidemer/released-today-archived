@@ -11,6 +11,7 @@ class NotificationDashboard < Administrate::BaseDashboard
     id: Field::Number,
     user: Field::BelongsTo,
     album: Field::BelongsTo,
+    artist: Field::HasOne,
     sent_at: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
@@ -24,6 +25,7 @@ class NotificationDashboard < Administrate::BaseDashboard
   COLLECTION_ATTRIBUTES = [
     :id,
     :user,
+    :artist,
     :album,
     :sent_at,
   ].freeze
@@ -33,6 +35,7 @@ class NotificationDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = [
     :id,
     :user,
+    :artist,
     :album,
     :sent_at,
     :created_at,
