@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.1.1'
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'administrate', github: 'thoughtbot/administrate'
+gem 'bourbon'
 gem 'bugsnag'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
