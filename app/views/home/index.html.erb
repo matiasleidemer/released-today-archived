@@ -1,16 +1,45 @@
-<div class="sign-up">
-  <span class="sign-up__logo icon">
-    <svg>
-      <use xlink:href="#released-logo"></use>
-    </svg>
-  </span>
+<section class="landing-page">
+  <div class="hero feature">
+    <h1 class="hide-mobile"><span class="highlight">Released.</span>today</h1>
+    <h1 class="hide-desktop"><span class="highlight">Released.<br></span>today</h1>
+  </div>
 
-  <h1 class="sign-up__slogan">
-    Get an email with new music releases from your favorite artists
-  </h1>
+  <div class="feature">
+    <span class="eyebrow">What</span>
+    <h2>
+      Receive an email everytime there’s new releases from your favourite artists.
+    </h2>
+  </div>
 
-  <%= link_to 'Sign in with Spotify', user_spotify_omniauth_authorize_path,
-    class: 'button button--huge' %>
+  <div class="feature">
+    <span class="eyebrow">How</span>
+    <h2>Connect your <span class="highlight">Spotify</span> account with our system.</h2>
+    <p>We won’t mess with your privacy, share data or modify your profile. Don’t worry about it.</p>
+  </div>
 
-  <p class="email"><%= link_to "Contact me", "mailto:matias@released.today" %></p>
-</div>
+  <div class="feature covers">
+    <h2>We analyze your music taste to identify your favourite artists.</h2>
+    <p>Our algorith doesn’t miss a thing when it comes to the stuff you really like.</p>
+  </div>
+
+  <div class="feature">
+    <h2 class="highlight">We keep track of their new releases and send them to your email.</h2>
+    <p>Simple as that. Easy as that.</p>
+  </div>
+
+  <div class="feature feature-light">
+    <span class="eyebrow">Why</span>
+    <h2>It feels good to always receive good news through email.</h2>
+    <p>We just want to have fun building a product that is helpul for us and might be helpful for a bunch of people out there.</p>
+  </div>
+
+  <div class="feature hide-desktop">
+    <p>Released Today <%= Time.current.year %>.<br><br>
+      <%= link_to 'Terms and conditions', '#' %><br><br>
+      <%= link_to 'Get in Touch', 'mailto:matias@released.today' %>
+    </p>
+  </div>
+</section>
+
+<%= link_to 'Connect your Spotify', user_spotify_omniauth_authorize_path,
+  class: 'connect-account' %>

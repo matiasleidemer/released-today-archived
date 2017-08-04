@@ -1,0 +1,229 @@
+@import "bourbon";
+
+$DARK: #1d1d1d;
+$GREEN: #41FF84;
+$AQUA: #0DECDA;
+$GRAY: #666;
+
+* {
+  box-sizing: border-box;
+}
+
+a, button {
+  outline: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body, button, h1, h2, h3, h4, h5, h6, hr, ol, p, ul {
+  margin: 0;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+button, ol, ul {
+  padding: 0;
+}
+
+body {
+  background: rgb(255, 255, 255);
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+html {
+	font-size: 2.5vw;
+  line-height: 2.75vw;
+  letter-spacing: -0.2vw;
+	font-family: $helvetica;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	background: $DARK;
+	color: $AQUA;
+	display: table;
+}
+
+.hide {
+  &-desktop { display: none; }
+  &-mobile { display: block; }
+}
+
+.landing-page {
+	display: inline-block;
+	width: 100VW;
+	padding: 0;
+	background: image-url("landing/covers_top.jpg") no-repeat 0 0;
+	background-size: 100%;
+}
+
+h1 {
+	font-size: 3.2rem;
+	letter-spacing: -0.15rem;
+}
+
+h2 {
+	font-size: 1.2rem;
+	letter-spacing: -0.05rem;
+	line-height: 1.2rem;
+	margin-bottom: 10px;
+}
+
+.connect-account {
+	position: fixed;
+	top: 2VW;
+	right: 2vw;
+	background: $GREEN;
+	color: $DARK;
+	display: block;
+	padding: 0.25vw 2vw;
+	border-radius: 100VW;
+	font-size: 0.5rem;
+	letter-spacing: -0.025rem;
+	text-decoration: none;
+	font-weight: bold;
+
+	&:hover {
+		background: darken($GREEN, 5%);
+	}
+}
+
+p,
+.eyebrow {
+	width: 55%;
+	letter-spacing: -0.01rem;
+	font-size: 0.5rem;
+	line-height: 0.65rem;
+	color: $GRAY;
+
+	a {
+		text-decoration: none;
+		font-weight: bold;
+		color: $GREEN;
+	}
+}
+
+.eyebrow {
+	color: $GREEN;
+	width: 100%;
+}
+
+.highlight {
+	color: $GREEN;
+}
+
+.feature {
+	display: block;
+	padding: 10vw 26VW 10VW 20VW;
+	width: 90%;
+
+	&.covers {
+		width: 100%;
+		background: image-url("landing/covers_middle.jpg") no-repeat right bottom;
+		background-size: 100%;
+		padding-right: 38vw;
+	}
+
+	&-light {
+		background: $AQUA image-url("landing/covers_aqua.jpg") no-repeat 0 0;
+		background-size: 100%;
+		width: 100%;
+		padding-top: 8vw;
+		padding-bottom: 18vw;
+
+		h2 {
+			width: 90%;
+			color: $DARK;
+		}
+
+		.eyebrow {
+			color: $GRAY;
+		}
+	}
+}
+
+.hero {
+	padding: 24vw 26VW 10vw 20VW;
+
+	&:before {
+		position: absolute;
+		display: block;
+		width: 3VW;
+		height: 3VW;
+		background: $GREEN;
+		top: 0;
+		left: 0;
+		content: " ";
+	}
+}
+
+@media #{"only screen and (max-width : 800px)"} {
+  html {
+    font-size: 6.5vw;
+    line-height: 6.5vw;
+  }
+
+  .hide {
+    &-desktop { display: block; }
+    &-mobile { display: none; }
+  }
+
+	.landing-page {
+		width: 100vw;
+		background: image-url("landing/covers_top@2x.jpg") no-repeat 0 0;
+		background-size: 100%;
+	}
+
+	.feature {
+		padding: 10vw 12VW 30VW 11VW;
+		width: 100%;
+
+		&.covers {
+			padding-right: 11vw;
+			background: none;
+		}
+
+		&-light {
+			padding-bottom: 50vw;
+			background-image: image-url("landing/covers_aqua@2x.jpg");
+		}
+	}
+
+	.connect-account {
+		font-size: 0.75rem;
+		padding: 3vw 6vw;
+		top: auto;
+		bottom: 5vw;
+	}
+
+	.hero {
+		padding-top: 25VH;
+		padding-bottom: 10VH;
+
+			&:before {
+				width: 8VW;
+				height: 8VW;
+			}
+	}
+
+	h1 {
+		font-size: 2.5rem;
+		line-height: 2rem;
+	}
+
+	p {
+		width: 80%;
+		font-size: 0.65rem;
+		line-height: 0.8rem;
+	}
+}

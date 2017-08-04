@@ -4,27 +4,17 @@
     <title>Released</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
+    <%= stylesheet_link_tag 'landing', media: 'all' %>
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
 
     <%= render 'shared/google_analytics' %>
   </head>
 
-  <body class="landing-page">
-    <%= render 'shared/icons' %>
-
+  <body>
     <%= yield %>
-
-    <% if flash.present? %>
-      <div class="flash-message-container">
-        <% flash.each do |key, value| %>
-          <div class="flash-message flash-message--<%= key %>">
-            <%= value %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
   </body>
 </html>
