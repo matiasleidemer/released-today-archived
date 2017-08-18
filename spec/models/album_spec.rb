@@ -19,8 +19,13 @@ RSpec.describe Album do
       expect(album.released_today?).to eql(true)
     end
 
-    it "returns false when the album wasn't released today" do
+    it "returns true if the album was released yesterday" do
       album = build_stubbed(:album, released_at: Time.zone.yesterday)
+      expect(album.released_today?).to eql(true)
+    end
+
+    it "returns false if the album was released before yesterday" do
+      album = build_stubbed(:album, released_at: Time.zone.today - 2.days)
       expect(album.released_today?).to eql(false)
     end
   end

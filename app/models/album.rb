@@ -10,6 +10,6 @@ class Album < ApplicationRecord
   end
 
   def released_today?
-    released_at.today?
+    (Time.zone.yesterday..Time.zone.today).cover?(released_at)
   end
 end
