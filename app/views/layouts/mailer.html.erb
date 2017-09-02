@@ -1,13 +1,278 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
-  </head>
 
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <meta name="viewport" content="width=device-width" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>Released.today</title>
+  <style media="screen">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    .collapse {
+      margin: 0;
+      padding: 0;
+    }
+
+    table.body {
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: none;
+      width: 100%!important;
+      height: 100%;
+      font-size: 18px;
+      background: #1d1d1d url("<%= image_url("landing/covers_top.jpg", host: "https://released.today") %>") no-repeat center 0;
+      background-size: 100%;
+    }
+
+    a {
+      color: #41FF84;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    table.head-wrap {
+      width: 100%;
+    }
+
+    table.body-wrap {
+      width: 100%;
+    }
+
+    table.footer-wrap {
+      width: 100%;
+      clear: both!important;
+    }
+
+    .footer-wrap .container td.content p {
+      border-top: 1px solid rgb(215, 215, 215);
+      padding-top: 15px;
+    }
+
+    .footer-wrap .container td.content a {
+      color: #1d1d1d;
+    }
+
+    .footer-wrap .container td.content p {
+      font-size: 10px;
+      font-weight: bold;
+      color: #666;
+    }
+
+    .footer-wrap a {
+      color: #666;
+    }
+
+    .footer-wrap p {
+      color: #666;
+    }
+
+    .footer-wrap h2 {
+      color: #666;
+      font-size: 30px;
+      letter-spacing: -2px;
+    }
+
+    .footer-wrap h2 .green {
+      color: #444;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+      line-height: 1.1;
+      color: #0DECDA;
+    }
+
+    h4 {
+      margin: 5px 0 10px
+    }
+
+    .date {
+      opacity: .5;
+    }
+
+    h1 small,
+    h2 small,
+    h3 small,
+    h4 small,
+    h5 small,
+    h6 small {
+      font-size: 100%;
+      color: #6f6f6f;
+      line-height: 0;
+      text-transform: none;
+    }
+
+    h1 small a,
+    h2 small a,
+    h3 small a,
+    h4 small a,
+    h5 small a,
+    h6 small a {
+      color: #999;
+    }
+
+    h1 {
+      font-weight: bold;
+      letter-spacing: -1px;
+      font-size: 24px;
+    }
+
+    h2 {
+      font-weight: bold;
+      letter-spacing: -3px;
+      font-size: 50px;
+    }
+
+    h2 .green {
+      color: #41FF84;
+    }
+
+    h3 {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    h4 {
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    h5 {
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    h6 {
+      font-weight: 900;
+      font-size: 16px;
+      text-transform: uppercase;
+      color: #0DECDA;
+    }
+
+    .collapse {
+      margin: 0!important;
+    }
+
+    p,
+    ul {
+      margin-bottom: 10px;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 1.3;
+      color: #666;
+    }
+
+    p.lead {
+      font-size: 17px;
+    }
+
+    p.last {
+      margin-bottom: 0px;
+    }
+
+    ul li {
+      margin-left: 5px;
+      list-style-position: inside;
+    }
+
+    .pre {
+      border-top: 2px solid #333;
+    }
+
+    .container {
+      display: block!important;
+      max-width: 600px!important;
+      margin: 0 auto!important;
+      /* makes it centered */
+      clear: both!important;
+    }
+
+    .content {
+      padding: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .content table {
+      width: 100%;
+    }
+
+    .column {
+      width: 300px;
+      float: left;
+    }
+
+    .column tr td {
+      padding: 15px;
+    }
+
+    .column-wrap {
+      padding: 0!important;
+      margin: 0 auto;
+      max-width: 600px!important;
+    }
+
+    .column table {
+      width: 100%;
+    }
+
+    .social .column {
+      width: 280px;
+      min-width: 279px;
+      float: left;
+    }
+
+    .clear {
+      display: block;
+      clear: both;
+    }
+
+    @media only screen and (max-width: 600px) {
+      a[class="btn"] {
+        display: block!important;
+        margin-bottom: 10px!important;
+        background-image: none!important;
+        margin-right: 0!important;
+      }
+      div[class="column"] {
+        width: auto!important;
+        float: none!important;
+      }
+      table.social div[class="column"] {
+        width: auto!important;
+      }
+    }
+  </style>
+</head>
+
+<body topmargin="0" leftmargin="0" marginheight="0" marginwidth="0">
+  <table class="body">
+    <tr align='center'>
+      <td>
+        <!-- "Content" table goes here -->
+        <table>
+          <%= yield %>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <%= yield :footer %>
+</body>
 </html>

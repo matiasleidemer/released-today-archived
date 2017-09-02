@@ -1,23 +1,112 @@
-<p>Hello <%= @user.first_name %>, looks like you have some new album releases. Awesome!</p>
+<table class="head-wrap">
+  <tr>
+    <td></td>
+    <td class="header container" align="">
 
-<br />
+      <div class="content">
+        <table height="150">
+          <tr>
+            <td>
+              <h2><span class="green">Released</span>.today</h2>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-<ul>
-  <% @releases.each do |album| %>
-    <li>
-      <%= link_to album.name, "https://open.spotify.com/album/#{album.spotify_id}" %>
-      by <%= link_to album.artist.name, "https://open.spotify.com/artist/#{album.artist.spotify_id}" %>
-      was released on <%= I18n.l(album.released_at, format: :short_with_year) %>
-    </li>
-  <% end %>
-</ul>
+    </td>
+    <td></td>
+  </tr>
+</table>
 
-<br />
 
-<p>Do you like what you see? Please tell your friends about Released Today :)</p>
+<table class="body-wrap" bgcolor="">
+  <tr>
+    <td></td>
+    <td class="container" align="">
 
-<p>Feel free to reply to this email if you have questions or suggestions. </p>
+      <div class="content">
+        <table>
+          <tr>
+            <td>
+              <h1>Hello <%= @user.first_name %>!</h1><br>
+              <p class="lead">Looks like you have some<br>new album releases. Awesome!</p>
+            </td>
+          </tr>
+        </table>
+      </div><br>
 
-<p>I hope you enjoy your new releases! <br/> Best,</p>
+      <% @releases.each do |album| %>
+        <div class="content">
+          <table>
+            <tr>
+              <td class="small" width="20%" style="vertical-align: top; padding-right:10px;">
+                <%= image_tag album.image_url %>
+              </td>
+              <td>
+                <h4>
+                  <%= link_to album.name, "https://open.spotify.com/album/#{album.spotify_id}",
+                              style: "color: #41FF84; text-decoration: none; font-weight: bold;" %>
+                  <small>by <%= link_to album.artist.name, "https://open.spotify.com/artist/#{album.artist.spotify_id}",
+                                        style: "color: #999; text-decoration: none; font-weight: bold; line-height: 1;"%></small>
+                </h4>
+                <p class="tracks">
+                  <%= pluralize(album.number_of_tracks, "Track", "Tracks") %>
+                </p>
+                <p class="date">
+                  <%= I18n.l(album.released_at, format: :short_with_year) %>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      <% end %>
 
-<p>Matias</p>
+      <br><br>
+
+      <div class="content pre" bgcolor="#41FF84">
+        <table>
+          <tr>
+            <td>
+              <br>
+              <p class="lead">Do you like what you see?<br>Please tell your friends about Released Today :)</p>
+              <br>
+              <p class="lead">Feel free to reply to this email if you<br>have questions or suggestions.</p>
+              <br>
+              <p class="lead">I hope you enjoy your new releases!<br>
+                <Br>Best, <br>Matias</p>
+                  <br><br>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </td>
+        <td></td>
+      </tr>
+    </table>
+
+
+<%= content_for :footer do %>
+  <table class="footer-wrap" bgcolor="#0DECDA">
+    <tr>
+      <td class="container">
+        <div class="content">
+          <table>
+            <tr>
+              <td>
+                <h2><span class="green">Released</span>.today</h2>
+              </td>
+            </tr>
+            <tr>
+              <td align="left">
+                <p><br> If you'd like to unsubscribe and stop receiving these emails
+                  <a href="{% unsubscribe %}">click here</a>.<br><br>
+                </p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td></td>
+    </tr>
+  </table>
+<% end %>
