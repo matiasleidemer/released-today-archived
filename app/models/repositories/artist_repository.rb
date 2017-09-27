@@ -9,12 +9,11 @@ module Repositories
     end
 
     def create_or_update(data)
-      record = model.find_or_initialize_by(spotify_id: data[:spotify_id]) do |instance|
-        instance.name     = data[:name]
-        instance.metadata = data[:metadata]
-      end
-
+      record = model.find_or_initialize_by(spotify_id: data[:spotify_id])
+      record.name = data[:name]
+      record.metadata = data[:metadata]
       record.save
+
       record
     end
 
