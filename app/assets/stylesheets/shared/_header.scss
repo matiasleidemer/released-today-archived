@@ -5,6 +5,16 @@
 .header__logo {
   width: 226px;
   height: 30px;
+
+  h1 {
+    font-size: 34px;
+    letter-spacing: -0.15rem;
+    margin: 0px;
+
+    div {
+      float: left
+    }
+  }
 }
 
 .header__welcome {
@@ -22,4 +32,8 @@
       text-decoration: underline;
     }
   }
+}
+
+.header__link {
+  padding-left: 2em;
 }

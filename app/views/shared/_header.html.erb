@@ -2,11 +2,10 @@
   <div class="grid grid--space-between grid--vertical-middle">
     <div class="grid__cell">
       <div class="header__logo">
-        <div class="icon">
-          <svg>
-            <use xlink:href="#released-logo"></use>
-          </svg>
-        </div>
+        <h1>
+          <div style="color: #41FF84">Released.</div>
+          <div style="color: #0DECDA">today</div>
+        </h1>
       </div>
     </div>
 
@@ -16,7 +15,7 @@
         <strong>
           <%= current_user.name.split(' ').first %>.
         </strong>
-        <%= link_to 'Sign out', destroy_user_session_path, method: 'delete' %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'header__link' %>
       </p>
     </div>
   </div>

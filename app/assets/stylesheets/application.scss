@@ -1,8 +1,11 @@
+@import "bourbon";
+
 $color-primary: #F9282B;
 $color-secondary: #FFFFFF;
-$color-text: #7E919C;
+$color-text: #666;
 
-$background-color: #232A2F;
+$background-color: #1D1D1D;
+$font-family: $helvetica;
 
 @import "shared/global";
 
