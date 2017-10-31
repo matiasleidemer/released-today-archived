@@ -23,6 +23,7 @@ module Repositories
         user.name = auth.info.name
         user.email = auth.info.email
         user.metadata = auth.to_json
+        user.email_frequency ||= 'daily'
         user.token ||= generate_token
       end
     end
@@ -34,6 +35,7 @@ module Repositories
       record.name = data[:name]
       record.email = data[:email]
       record.metadata = data[:metadata] && data[:metadata].to_json
+      record.email_frequency = 'daily'
       record.token = generate_token
 
       record.save
@@ -42,7 +44,7 @@ module Repositories
     end
 
     def find_from_authorization(payload = {})
-      email = payload.dig("claims", "email")
+      email = payload.dig('claims', 'email')
       model.find_by(email: email)
     end
 
@@ -51,9 +53,7 @@ module Repositories
     def generate_token
       token = SecureRandom.hex(20)
 
-      while model.where(token: token).count > 0
-        token = SecureRandom.hex(20)
-      end
+      token = SecureRandom.hex(20) while model.where(token: token).count > 0
 
       token
     end
