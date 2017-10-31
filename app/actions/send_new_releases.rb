@@ -4,6 +4,7 @@ class SendNewReleases
       repository = Repositories::NotificationRepository.new
 
       repository.pending.group_by(&:user).each_pair do |user, notifications|
+        next unless user.send_releases?
         releases = notifications.map(&:album)
         NotificationsMailer.new_releases(user, releases).deliver_later
         repository.mark_as_sent(notifications)

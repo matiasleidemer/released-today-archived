@@ -23,4 +23,15 @@ class User < ApplicationRecord
   def first_name
     name.split(' ').first.titleize
   end
+
+  def send_releases?
+    case email_frequency
+    when 'daily'
+      true
+    when 'weekly'
+      Time.zone.now.monday? ? true : false
+    when 'monthly'
+      Time.zone.now.day == 1 ? true : false
+    end
+  end
 end
