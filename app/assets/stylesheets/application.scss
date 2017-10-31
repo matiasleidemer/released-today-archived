@@ -8,6 +8,7 @@ $background-color: #1D1D1D;
 $font-family: $helvetica;
 
 @import "shared/global";
+@import "shared/form";
 
 @import "shared/container";
 @import "shared/grid";
@@ -16,7 +17,6 @@ $font-family: $helvetica;
 @import "shared/header";
 @import "shared/main";
 
-@import "shared/button";
 @import "shared/icon";
 @import "shared/pagination";
 @import "shared/flash-message";

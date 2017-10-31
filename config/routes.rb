@@ -1,7 +1,7 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  authenticate :user, lambda { |u| u.admin? } do
+  authenticate :user, ->(u) { u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
 
@@ -11,31 +11,33 @@ Rails.application.routes.draw do
     resources :artists
     resources :notifications
 
-    root to: "users#index"
+    root to: 'users#index'
   end
 
-  devise_for :users, controllers: { omniauth_callbacks: "spotify_callbacks" }
+  devise_for :users, controllers: { omniauth_callbacks: 'spotify_callbacks' }
   devise_scope :user do
     delete 'sign_out', to: 'devise/sessions#destroy', as: :destroy_user_session
   end
 
-  root to: "home#index"
+  root to: 'home#index'
 
-  get "dashboard", to: "dashboard#index"
+  get 'dashboard', to: 'dashboard#index'
+  get 'preferences', to: 'preferences#index'
+  put 'preferences', to: 'preferences#update'
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:show, :create] do
+      resources :users, only: %i[show create] do
         get 'find', on: :collection
       end
 
-      post "me/add_artists", to: "profile#add_artists"
-      get  "me/releases",    to: "profile#releases"
-      get  "me/artists",     to: "profile#artists"
+      post 'me/add_artists', to: 'profile#add_artists'
+      get  'me/releases',    to: 'profile#releases'
+      get  'me/artists',     to: 'profile#artists'
     end
   end
 
   # Custom spotify swap/refresh tokens. Needed for iOS token generation
-  post "spotify/tokens/swap", to: "spotify_tokens#swap"
-  post "spotify/tokens/refresh", to: "spotify_tokens#refresh"
+  post 'spotify/tokens/swap', to: 'spotify_tokens#swap'
+  post 'spotify/tokens/refresh', to: 'spotify_tokens#refresh'
 end

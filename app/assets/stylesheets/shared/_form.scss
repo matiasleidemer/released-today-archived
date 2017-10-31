@@ -1,0 +1,45 @@
+div.form-group {
+  margin-bottom: 1rem;
+
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+  }
+
+  .form-control {
+    display: block;
+    width: 50%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-image: none;
+    background-clip: padding-box;
+    border: 1px solid;
+    border-radius: .25rem;
+  }
+
+  // .actions {
+  //   margin-top: 1rem;
+  //
+  //   .button {
+  //     display: inline-block;
+  //     font-weight: 400;
+  //     text-align: center;
+  //     white-space: nowrap;
+  //     vertical-align: middle;
+  //     -webkit-user-select: none;
+  //     -moz-user-select: none;
+  //     -ms-user-select: none;
+  //     user-select: none;
+  //     border: 1px solid transparent;
+  //     padding: .375rem .75rem;
+  //     font-size: 1rem;
+  //     line-height: 1.5;
+  //     border-radius: .25rem;
+  //     transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  //   }
+  // }
+  //
+}

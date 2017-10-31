@@ -2,10 +2,12 @@
   <div class="grid grid--space-between grid--vertical-middle">
     <div class="grid__cell">
       <div class="header__logo">
-        <h1>
-          <div style="color: #41FF84">Released.</div>
-          <div style="color: #0DECDA">today</div>
-        </h1>
+        <%= link_to dashboard_path do %>
+          <h1>
+            <div style="color: #41FF84">Released.</div>
+            <div style="color: #0DECDA">today</div>
+          </h1>
+        <% end %>
       </div>
     </div>
 
@@ -15,6 +17,8 @@
         <strong>
           <%= current_user.name.split(' ').first %>.
         </strong>
+        <%= link_to 'Releases', dashboard_path, class: 'header__link' %>
+        <%= link_to 'Preferences', preferences_path, class: 'header__link' %>
         <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'header__link' %>
       </p>
     </div>

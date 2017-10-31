@@ -10,6 +10,12 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
+// = require jquery
+// = require jquery_ujs
+// = require_tree .
+
+$(document).ready(function () {
+  var noticeMessage = $('.flash-message')
+
+  if (noticeMessage.length > 0) noticeMessage.delay(5000).fadeOut()
+})
