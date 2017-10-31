@@ -32,6 +32,8 @@ class User < ApplicationRecord
       Time.zone.now.monday? ? true : false
     when 'monthly'
       Time.zone.now.day == 1 ? true : false
+    else
+      false
     end
   end
 end
