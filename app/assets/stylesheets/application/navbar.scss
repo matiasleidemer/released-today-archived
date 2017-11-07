@@ -1,0 +1,39 @@
+.navbar {
+  padding: 20px 0 45px 0;
+}
+
+.navbar-logo {
+  font-size: 34px;
+  letter-spacing: -0.15rem;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  background: $color-released;
+}
+
+div {
+  &.navbar-logo-released {
+    float: left;
+    color: $color-released;
+  }
+
+  &.navbar-logo-today {
+    float: left;
+    color: $color-today;
+  }
+}
+
+span.navbar-hello {
+  padding-left: 2em;
+}
+
+li.navbar-links {
+  padding-left: 2em;
+
+  a {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

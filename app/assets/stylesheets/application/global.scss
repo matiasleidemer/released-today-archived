@@ -1,0 +1,34 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  font-size: 14px;
+  font-family: $font-family;
+  color: $color-text;
+  background: $background-color;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #FFF;
+
+  &:hover {
+    color: #FFF;
+    text-decoration: underline;
+  }
+}
+
+.header {
+  letter-spacing: -0.15rem;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+.fetching-message {
+  text-align: center;
+  font-weight: 600;
+  font-size: 18px;
+}

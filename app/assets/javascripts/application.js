@@ -15,7 +15,7 @@
 // = require_tree .
 
 $(document).ready(function () {
-  var noticeMessage = $('.flash-message')
+  var noticeMessage = $('.alert-success')
 
   if (noticeMessage.length > 0) noticeMessage.delay(5000).fadeOut()
 })

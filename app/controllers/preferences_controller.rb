@@ -5,7 +5,7 @@ class PreferencesController < ApplicationController
 
   def update
     current_user.update_attributes(permitted_params)
-    redirect_to preferences_path, notice: 'Preferences updated successfully!'
+    redirect_to preferences_path, flash: { success: 'Preferences updated successfully!' }
   end
 
   private
