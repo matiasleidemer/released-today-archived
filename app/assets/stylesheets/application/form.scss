@@ -1,0 +1,13 @@
+.btn-main {
+  background-color: $color-released;
+  border-color: $color-released;
+
+  &:hover {
+    background-color: darken($color-released, 20%);
+    border-color: darken($color-released, 20%);
+  }
+}
+
+.actions {
+  padding-top: 15px;
+}

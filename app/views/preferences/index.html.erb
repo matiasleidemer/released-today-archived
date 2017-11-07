@@ -1,20 +1,26 @@
-<div>
-  <h1>Preferences</h1>
+<div class="row no-gutters">
+  <div class="col-lg-6">
+    <h3 class="header">Preferences</h3>
 
-  <%= form_with model: current_user, url: preferences_path, method: :put, local: true do |f| %>
-    <div class="form-group">
-      <%= f.label :name, 'Your name:' %>
-      <%= f.text_field :name, class: 'form-control' %>
-    </div>
+    <%= form_with model: current_user, url: preferences_path, method: :put, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :name, 'Your name:' %>
+        <%= f.text_field :name, class: 'form-control', placeholder: 'Your name' %>
+      </div>
 
-    <div class="form-group">
-      <%= f.label :email_frequency, 'Email frequency:' %>
-      <%= f.select :email_frequency, [['Daily', :daily], ['Weekly', :weekly], ['Monthly', :monthly], ['Never', :never]],
-                   {}, { class: 'form-control' } %>
-    </div>
+      <div class="form-group">
+      </div>
 
-    <div class="actions">
-      <%= f.submit 'Submit' %>
-    </div>
-  <% end %>
+      <div class="form-group">
+        <%= f.label :email_frequency, 'Email frequency:' %>
+        <%= f.select :email_frequency, [['Daily', :daily], ['Weekly', :weekly], ['Monthly', :monthly], ['Never', :never]],
+                     {}, { class: 'form-control' } %>
+        <small class="form-text text-muted">I will not send you anything if you don't have any releases in the current period.</small>
+      </div>
+
+      <div class="actions">
+        <%= f.submit 'Submit', class: 'btn btn-main' %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,22 @@
+<div class="col-md-6 col-lg-3 album-card">
+  <div>
+    <%= image_tag album.image_url, class: 'img-fluid rounded',
+                                   alt: "#{album.name} by #{album.artist.name}" %>
+  </div>
+
+  <div class="album-card-details">
+    <span class="album-card-details-artist">
+      <%= album.artist.name %>
+    </span>
+
+    <span class="album-card-details-name">
+      <%= link_to album.name, "https://open.spotify.com/album/#{album.spotify_id}" %>
+    </span>
+
+    <span class="album-card-details-info">
+      <%= pluralize(album.number_of_tracks, 'Track') %>
+      •
+      <%= I18n.l(album.released_at, format: :short_with_year) %>
+    </span>
+  </div>
+</div>

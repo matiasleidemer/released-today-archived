@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md">
+  <%= link_to dashboard_path, class: 'navbar-brand navbar-logo' do %>
+    <div class="navbar-logo-released">Released.</div>
+    <div class="navbar-logo-today">today</div>
+  <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <%= octicon "three-bars" %>
+ </button>
+
+  <div class="navbar-collapse collapse navbar-links" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <span class="navbar-text navbar-hello">
+        Hello, <strong> <%= current_user.name.split(' ').first %>.</strong>
+      </span>
+      <li class="nav-item navbar-links">
+        <%= link_to 'Releases', dashboard_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item navbar-links">
+        <%= link_to 'Preferences', preferences_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item navbar-links">
+        <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'nav-link' %>
+      </li>
+    </ul>
+  </div>
+</nav>

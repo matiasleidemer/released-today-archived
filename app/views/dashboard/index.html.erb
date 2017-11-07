@@ -1,19 +1,30 @@
-<div>
+<div class="row no-gutters">
   <% if @albums.empty? %>
-    <p class="fetching-message">
-      We're fetching your latests albums based on your top 50 artists. <br />
-      This might take a few moments. <br />
-      Refresh at will.
-    </p>
+    <div class="col-lg-12">
+      <p class="fetching-message">
+        We're fetching your latests albums based on your top 50 artists. <br />
+        This might take a few moments. <br />
+        Refresh at will.
+      </p>
+
+      <p class="text-center">
+        <small>
+          If this is taking too long or something seems wrong, please
+          <%= link_to 'let me know', 'mailto:matias@released.today' %>.
+        </small>
+      </p>
+    </div>
   <% end %>
 
-  <div class="album-grid">
-    <% @albums.each do |album| %>
-      <div class="album-grid__cell">
-        <%= render 'shared/album_card', album: album %>
-      </div>
-    <% end %>
-  </div>
+  <% @albums.each_slice(4) do |albums| %>
+    <div class="row justify-content-between">
+      <% albums.each do |album| %>
+        <%= render 'album_card', album: album %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
-<%= paginate @albums %>
+<div class="row no-gutters justify-content-center">
+  <%= paginate @albums %>
+</div>

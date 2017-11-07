@@ -1,0 +1,40 @@
+div {
+  &.album-card {
+    padding-bottom: 35px;
+  }
+
+  &.album-card-details {
+    margin-top: 20px;
+  }
+}
+
+span {
+  &.album-card-details-artist {
+    display: block;
+    font-weight: 600;
+    font-size: 18px;
+    color: #FFFFFF;
+    line-height: 1;
+  }
+
+  &.album-card-details-name {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-top: 5px;
+
+    a {
+      color: #FFFFFF;
+    }
+  }
+
+  &.album-card-details-info {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: rgb(102, 102, 102);
+  }
+}
