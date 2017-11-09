@@ -1,3 +1,30 @@
+.ribbon-wrapper {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  right: 15px;
+  z-index: 9999;
+}
+
+.ribbon {
+  font: bold 10px Sans-Serif;
+  color: #000;
+  text-align: center;
+  text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
+  -webkit-transform: rotate(45deg);
+  -moz-transform:    rotate(45deg);
+  -ms-transform:     rotate(45deg);
+  -o-transform:      rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: -8px;
+  top: 19px;
+  width: 120px;
+  background-color: $color-released;
+}
+
 div {
   &.album-card {
     padding-bottom: 35px;
