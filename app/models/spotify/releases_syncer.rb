@@ -4,7 +4,6 @@ module Spotify
       def call(artists: nil, send_notification: true)
         artist_repository = Repositories::ArtistRepository.new
         album_repository = Repositories::AlbumRepository.new
-        notification_repository = Repositories::NotificationRepository.new
 
         artists ||= artist_repository.stale
 
@@ -21,7 +20,7 @@ module Spotify
             next unless album.released_today?
 
             album.followers.each do |follower|
-              notification_repository.create(album: album, user: follower)
+              Notification.create(album: album, user: follower)
             end
           end
 
