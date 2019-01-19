@@ -3,6 +3,6 @@ class FetchAndSendNewReleasesJob < ApplicationJob
 
   def perform
     FetchNewReleases.call
-    SendNewReleases.call
+    SendNewReleases.call(Notification.pending)
   end
 end
