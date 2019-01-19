@@ -12,10 +12,10 @@ module Spotify
     end
 
     def call
-      artist_repository = Repositories::ArtistRepository.new
-
-      Spotify::Artist.find_all(artists_ids).each do |artist|
-        user.follow_artist(artist_repository.create_or_update(artist.attributes))
+      Spotify::Artist.find_all(artists_ids).each do |spotify_artist|
+        user.follow_artist(
+          ::Artist.create_or_update_from_spotify(spotify_artist.attributes)
+        )
       end
     end
   end

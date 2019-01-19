@@ -2,10 +2,9 @@ module Spotify
   class ReleasesSyncer
     class << self
       def call(artists: nil, send_notification: true)
-        artist_repository = Repositories::ArtistRepository.new
         album_repository = Repositories::AlbumRepository.new
 
-        artists ||= artist_repository.stale
+        artists ||= ::Artist.stale
 
         artists.find_each do |artist|
           spotify_artist = Spotify::Artist.new(artist.metadata)
