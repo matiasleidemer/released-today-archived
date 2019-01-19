@@ -25,18 +25,6 @@ Rails.application.routes.draw do
   get 'preferences', to: 'preferences#index'
   put 'preferences', to: 'preferences#update'
 
-  namespace :api do
-    namespace :v1 do
-      resources :users, only: %i[show create] do
-        get 'find', on: :collection
-      end
-
-      post 'me/add_artists', to: 'profile#add_artists'
-      get  'me/releases',    to: 'profile#releases'
-      get  'me/artists',     to: 'profile#artists'
-    end
-  end
-
   # Custom spotify swap/refresh tokens. Needed for iOS token generation
   post 'spotify/tokens/swap', to: 'spotify_tokens#swap'
   post 'spotify/tokens/refresh', to: 'spotify_tokens#refresh'
