@@ -11,6 +11,17 @@ class User < ApplicationRecord
 
   devise :omniauthable, omniauth_providers: [:spotify]
 
+  def self.find_or_create_from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.uid = auth.uid
+      user.provider = auth.provider
+      user.name = auth.info.name
+      user.email = auth.info.email
+      user.metadata = auth.to_json
+      user.email_frequency = 'daily'
+    end
+  end
+
   def follow_artist(artist)
     return if artists.include?(artist)
     artists << artist

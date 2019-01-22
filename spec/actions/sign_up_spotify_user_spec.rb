@@ -1,16 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe SignUpSpotifyUser do
-  let(:omniauth_data)   { double(:omniauth_data) }
-  let(:user_repository) { double(:repo) }
+  let(:omniauth_data) { double(:omniauth_data) }
 
-  subject { described_class.new(omniauth_data, user_repository: user_repository) }
+  subject { described_class.new(omniauth_data) }
 
   describe '#call' do
     let(:user) { double(:user) }
 
     before do
-      allow(user_repository)
+      allow(User)
         .to receive(:find_or_create_from_omniauth)
         .with(omniauth_data)
         .and_return(user)
