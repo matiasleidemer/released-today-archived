@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe SendNewReleases do
+  include ActiveJob::TestHelper
+
+  def mailer_jobs_count
+    enqueued_jobs.count { |item| item[:job] == ActionMailer::DeliveryJob }
+  end
+
   let(:user) { FactoryGirl.create(:user, preferences: { email_frequency: 'daily' }) }
   let(:artist) { FactoryGirl.create(:artist) }
   let(:album) { FactoryGirl.create(:album, artist: artist) }
@@ -12,8 +18,8 @@ RSpec.describe SendNewReleases do
   subject { described_class.call(Notification.pending) }
 
   describe '.call' do
-    it 'sends the pending releases to users', pending: true do
-      expect { subject }.to change { ActionMailer::Base.deliveries.count }.by(1)
+    it 'sends the pending releases to users' do
+      expect { subject }.to change { mailer_jobs_count }.from(0).to(1)
     end
 
     it 'marks the notifications as sent' do
@@ -24,7 +30,7 @@ RSpec.describe SendNewReleases do
       let(:user) { FactoryGirl.create(:user, preferences: { email_frequency: nil }) }
 
       it 'does not send the pending releases to users' do
-        expect { subject }.to_not change { ActionMailer::Base.deliveries.count }
+        expect { subject }.to_not change { mailer_jobs_count }.from(0)
       end
 
       it 'does not mark the notifications as sent' do
