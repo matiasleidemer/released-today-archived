@@ -5,7 +5,7 @@ FactoryGirl.define do
     provider 'spotify'
     uid '12345'
     admin false
-    token "5b65f1"
+    token '5b65f1'
 
     trait :admin do
       admin true

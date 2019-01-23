@@ -1,11 +1,10 @@
 class SignUpSpotifyUser
-  attr_reader :auth, :user_repository
+  attr_reader :auth
 
   Result = Struct.new(:success?, :user)
 
-  def initialize(auth, user_repository: Repositories::UserRepository.new)
+  def initialize(auth)
     @auth = auth
-    @user_repository = user_repository
   end
 
   def self.call(auth)
@@ -13,7 +12,7 @@ class SignUpSpotifyUser
   end
 
   def call
-    user = user_repository.find_or_create_from_omniauth(auth)
+    user = User.find_or_create_from_omniauth(auth)
     return Result.new(false, user) unless user.persisted?
 
     FetchNewUserArtistsJob.perform_later(user) if user.artists.empty?
