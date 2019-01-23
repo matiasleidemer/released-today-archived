@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [unreleased]
+
+## Updated
+
+- Sinatra version to 2.0.5
+- Ffi version to 1.10.0
+
 ## [1.0.1]
 
 ### Added
