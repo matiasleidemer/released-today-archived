@@ -1,8 +1,14 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Removed
+
+- Released::Jwt class
+
 ## [1.0.2]
 
-## Updated
+### Updated
 
 - Sinatra version to 2.0.5
 - Ffi version to 1.10.0
