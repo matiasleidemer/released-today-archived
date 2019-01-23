@@ -5,6 +5,7 @@
 ### Removed
 
 - Released::Jwt class
+- SpotifyTokensController
 
 ## [1.0.2]
 
