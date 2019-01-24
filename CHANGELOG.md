@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Added
+
+- .ruby-version file
+
+### Updated
+
+- Rspotify version to 1.27.0
+- Database cleaner version to 1.7.0
+
 ## [1.0.3]
 
 ### Removed
