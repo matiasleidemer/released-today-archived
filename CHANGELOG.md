@@ -7,6 +7,11 @@
 - rails to 5.2.3
 - ruby to 2.6.3
 
+### Removed
+
+- client_callback_url env variable
+- spotify_token_swap_encryption_secret env variable
+
 ## [1.0.4]
 
 ### Added
