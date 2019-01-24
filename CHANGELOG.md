@@ -7,6 +7,10 @@
 - rails to 5.2.3
 - ruby to 2.6.3
 
+### Updated
+
+- client_id and client_secret variables renamed to include spotify in their names
+
 ### Removed
 
 - client_callback_url env variable
