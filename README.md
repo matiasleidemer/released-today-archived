@@ -36,6 +36,19 @@ cp .env.example .env
 
 This will generate the required `.env` file.
 
+#### Spotify
+
+ReleasedToday uses Spotify to gather information about user's releases. To be able to access the user's account, you need to generate both the spotify_client_id and spotify_client_secret tokens.
+
+To create those, you should visit [Spotify's developer page](https://developer.spotify.com/dashboard/applications) and create a new app. Once you finished all steps you should be able to get both the Client ID and Client Secret.
+
+There's one extra step, however. You should add the Redirect URIs to your app. Once you're on your Spotify app's page, click the edit settings button and add the URIs:
+
+- `http://localhost:3000/users/auth/spotify/callback` _(development)_
+- `https://your-production-app.com/users/auth/spotify/callback` _(production)_
+
+That's it, remember to update the `.env` file and you should be good to go.
+
 ### Sidekiq
 
 You don't have to, but if you want to run Sidekiq in your development environment, you have to have redis up and running with the default settings:
@@ -64,33 +77,6 @@ Finally, you can use the `foreman` gem to orchestrate everything for you. Just m
 
 ```
 bundle exec foreman start -f Procfile.development
-```
-
-## Deploys
-
-Our app is hosted on Heroku. Make sure you have access to both instances (staging and production). If you don't have, ask the system administrator.
-
-First, you're gonna need to setup both remotes:
-
-```
-git remote add staging https://git.heroku.com/released-staging.git
-git remote add production https://git.heroku.com/released-production.git
-```
-
-This will allow you to deploy new versions. In order to do so, you should run:
-
-```
-./bin/deploy (production | staging)
-```
-
-**Please be aware when deploying production.**
-
-## Database dumps
-
-With the Heroku remotes properly configured, you can download a production or staging db dump:
-
-```
-./bin/dump_db (production | staging)
 ```
 
 Remember that the production dump can take a while to download. You should be good to go with a staging dump.
