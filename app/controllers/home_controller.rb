@@ -12,11 +12,10 @@ class HomeController < ApplicationController
   private
 
   def authenticate_spotify
-    return if Rails.env == 'test'
-
-    RSpotify.authenticate(
-      Rails.application.secrets.client_id,
-      Rails.application.secrets.client_secret
+    AuthenticateSpotify.call(
+      client_id: Rails.application.secrets.client_id,
+      client_secret: Rails.application.secrets.client_secret,
+      env: Rails.env
     )
   end
 end
