@@ -12,7 +12,7 @@ gem 'administrate', '~> 0.11.0'
 gem 'bootsnap'
 gem 'bourbon'
 gem 'bugsnag'
-gem 'devise', '~> 4.5.0'
+gem 'devise', '~> 4.6.0'
 gem 'encrypted_strings', require: false
 gem 'factory_girl_rails', '~> 4.0'
 gem 'foreman'
