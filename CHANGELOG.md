@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [1.1.1]
+
+### Fixed
+
+- Spotify env variable names
+
 ## [1.1.0]
 
 ### Updated
