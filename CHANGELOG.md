@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Updated
+
+- rails to 5.2.3
+
 ## [1.0.4]
 
 ### Added
