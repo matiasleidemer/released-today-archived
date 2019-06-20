@@ -5,6 +5,7 @@
 ### Updated
 
 - rails to 5.2.3
+- ruby to 2.6.3
 
 ## [1.0.4]
 

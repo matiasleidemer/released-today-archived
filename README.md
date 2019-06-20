@@ -1,16 +1,16 @@
-# released
+# released.today
 
 Track new music releases from your favorite artists. Don't miss a thing! 🎶
 
 ## Setup
 
-- Ruby 2.4.1
-- Rails 5.1
-- Postgres 9.2
+- Ruby 2.6.3
+- Rails 5.2
+- Postgres 9.6
 - Redis
 - Sidekiq
 
-Once you downloaded the repo, install everything with 
+Once you downloaded the repo, install everything with
 
 ```
 bundle install
@@ -97,7 +97,7 @@ Remember that the production dump can take a while to download. You should be go
 
 ## Tests
 
-We use RSpec for our tests. You can run the full test suite with: 
+We use RSpec for our tests. You can run the full test suite with:
 
 ```
 bundle exec rspec
