@@ -79,8 +79,6 @@ Finally, you can use the `foreman` gem to orchestrate everything for you. Just m
 bundle exec foreman start -f Procfile.development
 ```
 
-Remember that the production dump can take a while to download. You should be good to go with a staging dump.
-
 ## Tests
 
 We use RSpec for our tests. You can run the full test suite with:
