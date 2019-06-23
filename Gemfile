@@ -11,7 +11,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'administrate', '~> 0.11.0'
 gem 'bootsnap', '~> 1.4.4'
 gem 'bourbon', '~> 4.3.4'
-gem 'bugsnag'
+gem 'bugsnag', '~> 6.11.1'
 gem 'devise', '~> 4.6.0'
 gem 'encrypted_strings', require: false
 gem 'factory_girl_rails', '~> 4.0'
