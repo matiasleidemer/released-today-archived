@@ -25,7 +25,7 @@ gem 'rails', '~> 5.2.3'
 gem 'rspotify', '~> 1.27.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid-ruby'
-gem 'sidekiq'
+gem 'sidekiq', '~> 5.2.7'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
