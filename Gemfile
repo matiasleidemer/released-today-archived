@@ -10,7 +10,7 @@ end
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'administrate', '~> 0.11.0'
 gem 'bootsnap', '~> 1.4.4'
-gem 'bourbon'
+gem 'bourbon', '~> 4.3.4'
 gem 'bugsnag'
 gem 'devise', '~> 4.6.0'
 gem 'encrypted_strings', require: false
