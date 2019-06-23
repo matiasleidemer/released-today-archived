@@ -43,6 +43,6 @@ end
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
   gem 'timecop', '~> 0.9.1'
-  gem 'vcr'
+  gem 'vcr', '~> 5.0.0'
   gem 'webmock'
 end

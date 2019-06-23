@@ -16,6 +16,7 @@
 - byebug gem to version 11.0.1
 - set database_cleaner gem version to 1.7.0
 - timecop gem to version 0.9.1
+- vcr gem to version 5.0.0
 
 ### Removed
 
