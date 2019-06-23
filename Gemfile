@@ -15,7 +15,7 @@ gem 'bugsnag', '~> 6.11.1'
 gem 'devise', '~> 4.6.0'
 gem 'encrypted_strings', require: false
 gem 'foreman', '~> 0.85.0'
-gem 'kaminari'
+gem 'kaminari', '~> 1.1.1'
 gem 'octicons_helper', '~> 9.1.1'
 gem 'omniauth-spotify'
 gem 'pg', '~> 0.18'

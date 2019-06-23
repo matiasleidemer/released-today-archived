@@ -25,6 +25,7 @@
 - sidekiq gem to version 5.2.7
 - octicons_helper gem to version 9.1.1
 - foreman gem to version 0.85.0
+- kaminari gem to version 1.1.1
 
 ### Removed
 
