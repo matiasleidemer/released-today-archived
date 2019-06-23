@@ -16,7 +16,6 @@ gem 'devise', '~> 4.6.0'
 gem 'encrypted_strings', require: false
 gem 'factory_girl_rails', '~> 4.0'
 gem 'foreman'
-gem 'jwt'
 gem 'kaminari'
 gem 'octicons_helper'
 gem 'omniauth-spotify'

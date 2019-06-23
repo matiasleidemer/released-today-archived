@@ -6,6 +6,10 @@
 
 - Authenticate spotify before starting FetchAndSendNewReleasesJob
 
+### Removed
+
+- JWT gem
+
 ## [1.1.1]
 
 ### Fixed

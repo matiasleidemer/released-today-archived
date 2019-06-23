@@ -330,7 +330,6 @@ DEPENDENCIES
   encrypted_strings
   factory_girl_rails (~> 4.0)
   foreman
-  jwt
   kaminari
   listen (~> 3.0.5)
   octicons_helper
