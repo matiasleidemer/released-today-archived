@@ -14,7 +14,7 @@ gem 'bourbon', '~> 4.3.4'
 gem 'bugsnag', '~> 6.11.1'
 gem 'devise', '~> 4.6.0'
 gem 'encrypted_strings', require: false
-gem 'foreman'
+gem 'foreman', '~> 0.85.0'
 gem 'kaminari'
 gem 'octicons_helper', '~> 9.1.1'
 gem 'omniauth-spotify'
