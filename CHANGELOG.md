@@ -10,6 +10,7 @@
 
 - bootsnap gem to version 1.4.4
 - bourbon gem to version 4.3.4
+- Bugsnag configuration to use rails secrets
 
 ### Removed
 
