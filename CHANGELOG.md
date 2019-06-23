@@ -23,6 +23,7 @@
 - vcr gem to version 5.0.0
 - webmock gem to version 3.6.0
 - sidekiq gem to version 5.2.7
+- octicons_helper gem to version 9.1.1
 
 ### Removed
 
