@@ -14,7 +14,6 @@ gem 'bourbon', '~> 4.3.4'
 gem 'bugsnag', '~> 6.11.1'
 gem 'devise', '~> 4.6.0'
 gem 'encrypted_strings', require: false
-gem 'factory_girl_rails', '~> 4.0'
 gem 'foreman'
 gem 'kaminari'
 gem 'octicons_helper'
@@ -31,6 +30,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', '~> 11.0.1', platform: :mri
   gem 'dotenv-rails', '~> 2.6.0'
+  gem 'factory_bot_rails', '~> 5.0.2'
   gem 'rspec-rails', '~> 3.8'
 end
 

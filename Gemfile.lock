@@ -103,11 +103,11 @@ GEM
     encrypted_strings (0.3.3)
     erubi (1.8.0)
     execjs (2.7.0)
-    factory_girl (4.8.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.8.0)
-      factory_girl (~> 4.8.0)
-      railties (>= 3.0.0)
+    factory_bot (5.0.2)
+      activesupport (>= 4.2.0)
+    factory_bot_rails (5.0.2)
+      factory_bot (~> 5.0.2)
+      railties (>= 4.2.0)
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
@@ -329,7 +329,7 @@ DEPENDENCIES
   devise (~> 4.6.0)
   dotenv-rails (~> 2.6.0)
   encrypted_strings
-  factory_girl_rails (~> 4.0)
+  factory_bot_rails (~> 5.0.2)
   foreman
   kaminari
   listen (~> 3.0.5)

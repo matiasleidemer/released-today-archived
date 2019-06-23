@@ -6,6 +6,10 @@
 
 - Authenticate spotify before starting FetchAndSendNewReleasesJob
 
+### Added
+
+- factory_bot_rails gem to replace factory_girl_rails (which is deprecated)
+
 ### Updated
 
 - bootsnap gem to version 1.4.4

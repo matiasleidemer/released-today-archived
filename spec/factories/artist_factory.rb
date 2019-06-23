@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :artist do
-    name 'Dinosaur Jr.'
-    spotify_id '267VY6GX5LyU5c9M85ECZQ'
+    name { 'Dinosaur Jr.' }
+    spotify_id { '267VY6GX5LyU5c9M85ECZQ' }
     metadata do
       {
         "href" => "https://api.spotify.com/v1/artists/267VY6GX5LyU5c9M85ECZQ",
