@@ -17,6 +17,7 @@
 - set database_cleaner gem version to 1.7.0
 - timecop gem to version 0.9.1
 - vcr gem to version 5.0.0
+- webmock gem to version 3.6.0
 
 ### Removed
 
