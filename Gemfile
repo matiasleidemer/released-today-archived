@@ -29,7 +29,7 @@ gem 'sidekiq'
 gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'byebug', '~> 11.0.1', platform: :mri
   gem 'dotenv-rails', '~> 2.6.0'
   gem 'rspec-rails', '~> 3.8'
 end
