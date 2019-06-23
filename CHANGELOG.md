@@ -14,6 +14,7 @@
 - bugsnag gem to version 6.11.1
 - rspec-rails gem to version 3.8.2
 - byebug gem to version 11.0.1
+- set database_cleaner gem version to 1.7.0
 
 ### Removed
 

@@ -325,7 +325,7 @@ DEPENDENCIES
   bugsnag (~> 6.11.1)
   bullet (~> 5.9.0)
   byebug (~> 11.0.1)
-  database_cleaner
+  database_cleaner (~> 1.7.0)
   devise (~> 4.6.0)
   dotenv-rails (~> 2.6.0)
   encrypted_strings

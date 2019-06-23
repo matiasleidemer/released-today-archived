@@ -41,8 +41,8 @@ group :development do
 end
 
 group :test do
-  gem 'database_cleaner'
+  gem 'database_cleaner', '~> 1.7.0'
+  gem 'timecop'
   gem 'vcr'
   gem 'webmock'
-  gem 'timecop'
 end
