@@ -9,7 +9,7 @@ end
 
 gem 'active_model_serializers', '~> 0.10.0'
 gem 'administrate', '~> 0.11.0'
-gem 'bootsnap'
+gem 'bootsnap', '~> 1.4.4'
 gem 'bourbon'
 gem 'bugsnag'
 gem 'devise', '~> 4.6.0'

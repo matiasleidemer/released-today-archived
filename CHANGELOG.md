@@ -6,6 +6,10 @@
 
 - Authenticate spotify before starting FetchAndSendNewReleasesJob
 
+### Updated
+
+- bootsnap gem to version 1.4.4
+
 ### Removed
 
 - JWT gem
