@@ -12,6 +12,7 @@
 - bourbon gem to version 4.3.4
 - Bugsnag configuration to use rails secrets
 - bugsnag gem to version 6.11.1
+- rspec-rails gem to version 3.8.2
 
 ### Removed
 

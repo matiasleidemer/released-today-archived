@@ -31,7 +31,7 @@ gem 'uglifier', '>= 1.3.0'
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'dotenv-rails', '~> 2.6.0'
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
