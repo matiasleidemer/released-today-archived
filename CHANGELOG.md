@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Fixed
+
+- Authenticate spotify before starting FetchAndSendNewReleasesJob
+
 ## [1.1.1]
 
 ### Fixed
