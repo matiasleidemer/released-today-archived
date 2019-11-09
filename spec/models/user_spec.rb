@@ -27,7 +27,7 @@ RSpec.describe User do
     end
 
     context 'when the user already exists' do
-      let!(:user) { FactoryGirl.create(:user, uid: 42, provider: 'spotify') }
+      let!(:user) { FactoryBot.create(:user, uid: 42, provider: 'spotify') }
       let(:auth) { OpenStruct.new({ provider: 'spotify', uid: 42 }) }
 
       it "returns the with the provider and uid" do
