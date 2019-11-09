@@ -12,7 +12,7 @@ gem 'administrate', '~> 0.11.0'
 gem 'bootsnap', '~> 1.4.4'
 gem 'bourbon', '~> 4.3.4'
 gem 'bugsnag', '~> 6.11.1'
-gem 'devise', '~> 4.6.0'
+gem 'devise', '~> 4.7.0'
 gem 'encrypted_strings', require: false
 gem 'foreman', '~> 0.85.0'
 gem 'kaminari', '~> 1.1.1'
