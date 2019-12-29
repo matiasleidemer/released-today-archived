@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Updated
+
+- rack gem to version 2.0.8
+- puma gem to version 3.12.2
+- nokogiri gem to version 1.10.7
+- loofah gem to version 2.4.0
+
 ## [1.1.2]
 
 ### Fixed
