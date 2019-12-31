@@ -73,7 +73,7 @@ Make sure you have Postgres running. The app should be running on `http://localh
 
 ### Foreman
 
-Finally, you can use the `foreman` gem to orchestrate everything for you. Just make sure you have both Redis and Postgres running. It will start a server on port 5000:
+Alternatively, you can use the `foreman` gem to orchestrate everything for you. Just make sure you have both Redis and Postgres running. It will start a server on port 3000:
 
 ```
 bundle exec foreman start -f Procfile.development
