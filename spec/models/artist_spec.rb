@@ -15,8 +15,8 @@ RSpec.describe Artist do
     it "creates a new user using spotify's payload" do
       artist = subject
 
-      expect(artist.spotify_id).to eql('1q2w3e')
-      expect(artist.name).to eql('Descendents')
+      expect(artist.spotify_id).to eql(payload[:spotify_id])
+      expect(artist.name).to eql(payload[:name])
       expect(artist.metadata).to eql(payload[:metadata])
     end
   end

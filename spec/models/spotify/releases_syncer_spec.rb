@@ -27,7 +27,7 @@ RSpec.describe Spotify::ReleasesSyncer do
       end
     end
 
-    it "creates new release notifications for users that follow the artist" do
+    it 'creates new release notifications for users that follow the artist' do
       VCR.use_cassette 'releases_syncer' do
         expect { described_class.call }
           .to change { user.notifications.count }.from(0).to(1)
@@ -39,7 +39,7 @@ RSpec.describe Spotify::ReleasesSyncer do
         artist.update_attribute(:updated_at, Time.zone.now)
       end
 
-      it "does nothing" do
+      it 'does nothing' do
         expect { described_class.call }.to_not change { artist.albums.count }
       end
     end

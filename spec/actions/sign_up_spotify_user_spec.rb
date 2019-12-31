@@ -18,7 +18,7 @@ RSpec.describe SignUpSpotifyUser do
     context "when user can't be persisted" do
       before { allow(user).to receive(:persisted?).and_return(false) }
 
-      it "returns an unsuccessful result" do
+      it 'returns an unsuccessful result' do
         result = subject.call
 
         expect(result.success?).to eql(false)
@@ -26,13 +26,13 @@ RSpec.describe SignUpSpotifyUser do
       end
     end
 
-    context "when user is persisted" do
+    context 'when user is persisted' do
       before do
         allow(user).to receive(:persisted?).and_return(true)
         allow(user).to receive(:artists).and_return([1])
       end
 
-      it "returns a successful result" do
+      it 'returns a successful result' do
         result = subject.call
 
         expect(result.success?).to eql(true)
@@ -42,7 +42,7 @@ RSpec.describe SignUpSpotifyUser do
       context "when user isn't following any artist" do
         before { allow(user).to receive(:artists).and_return([]) }
 
-        it "enqueues a new FetchNewUserArtistsJob" do
+        it 'enqueues a new FetchNewUserArtistsJob' do
           expect(FetchNewUserArtistsJob).to receive(:perform_later).with(user)
           subject.call
         end

@@ -5,13 +5,14 @@ RSpec.describe Notification, type: :model do
     before { Timecop.freeze(Time.zone.now) }
     after { Timecop.return }
 
-    let(:notification) { double(:notification) }
+    let(:notification) { spy(:notification) }
 
     it 'updates the provided notifications sent_at attribute with the current time' do
-      expect(notification)
-        .to receive(:update_attribute)
-        .with(:sent_at, Time.zone.now)
       described_class.mark_as_sent([notification])
+
+      expect(notification)
+        .to have_received(:update_attribute)
+        .with(:sent_at, Time.zone.now)
     end
   end
 end
