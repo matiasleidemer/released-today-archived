@@ -1,5 +1,46 @@
 # CHANGELOG
 
+## [1.1.3]
+
+### Updated
+
+- rack gem to version 2.0.8
+- puma gem to version 3.12.2
+- nokogiri gem to version 1.10.7
+- loofah gem to version 2.4.0
+
+## [1.1.2]
+
+### Fixed
+
+- Authenticate spotify before starting FetchAndSendNewReleasesJob
+
+### Added
+
+- factory_bot_rails gem to replace factory_girl_rails (which is deprecated)
+
+### Updated
+
+- bootsnap gem to version 1.4.4
+- bourbon gem to version 4.3.4
+- Bugsnag configuration to use rails secrets
+- bugsnag gem to version 6.11.1
+- rspec-rails gem to version 3.8.2
+- byebug gem to version 11.0.1
+- set database_cleaner gem version to 1.7.0
+- timecop gem to version 0.9.1
+- vcr gem to version 5.0.0
+- webmock gem to version 3.6.0
+- sidekiq gem to version 5.2.7
+- octicons_helper gem to version 9.1.1
+- foreman gem to version 0.85.0
+- kaminari gem to version 1.1.1
+- devise gem to version 4.7.1
+
+### Removed
+
+- JWT gem
+
 ## [1.1.1]
 
 ### Fixed

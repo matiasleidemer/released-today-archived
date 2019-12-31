@@ -7,9 +7,9 @@ RSpec.describe SendNewReleases do
     enqueued_jobs.count { |item| item[:job] == ActionMailer::DeliveryJob }
   end
 
-  let(:user) { FactoryGirl.create(:user, preferences: { email_frequency: 'daily' }) }
-  let(:artist) { FactoryGirl.create(:artist) }
-  let(:album) { FactoryGirl.create(:album, artist: artist) }
+  let(:user) { FactoryBot.create(:user, preferences: { email_frequency: 'daily' }) }
+  let(:artist) { FactoryBot.create(:artist) }
+  let(:album) { FactoryBot.create(:album, artist: artist) }
 
   before do
     Notification.create(user: user, album: album)
@@ -27,7 +27,7 @@ RSpec.describe SendNewReleases do
     end
 
     context 'when user does not want to receive notifications right away' do
-      let(:user) { FactoryGirl.create(:user, preferences: { email_frequency: nil }) }
+      let(:user) { FactoryBot.create(:user, preferences: { email_frequency: nil }) }
 
       it 'does not send the pending releases to users' do
         expect { subject }.to_not change { mailer_jobs_count }.from(0)
