@@ -20,3 +20,6 @@
 latest.dump
 .tags
 .tags1
+
+# Simplecov output
+coverage

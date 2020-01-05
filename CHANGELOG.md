@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Added
+
+- Simplecov configuration
+
 ## [1.1.3]
 
 ### Updated

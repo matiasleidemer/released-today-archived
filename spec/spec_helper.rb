@@ -17,6 +17,10 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
+# Simplecov rails configuration
+require 'simplecov'
+SimpleCov.start 'rails'
+
 # Require all shared examples
 Dir["./spec/support/shared_examples/*.rb"].sort.each { |f| require f }
 
