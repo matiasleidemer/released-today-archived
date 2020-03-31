@@ -6,6 +6,10 @@
 
 - Simplecov configuration
 
+### Updated
+
+- Administrate gem to 0.13
+
 ## [1.1.3]
 
 ### Updated
