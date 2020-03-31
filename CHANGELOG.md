@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Added
+
+- Code climate integration
+
 ## [1.1.4]
 
 ### Added

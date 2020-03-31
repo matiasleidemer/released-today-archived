@@ -1,5 +1,7 @@
 # released.today
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/34b834495f8ec12fcf44/maintainability)](https://codeclimate.com/github/matiasleidemer/released-today/maintainability)
+
 Track new music releases from your favorite artists. Don't miss a thing! 🎶
 
 ## Setup
