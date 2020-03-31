@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Spotify::FollowArtists do
+RSpec.describe FollowArtists do
   subject { described_class.new(user: user, artists_ids: artists_ids) }
 
   let(:user) { create(:user) }

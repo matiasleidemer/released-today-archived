@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## [1.1.4]
+
+### Added
+
+- Simplecov configuration
+
+### Updated
+
+- Administrate gem to 0.13
+- Rails gem to 5.2.4.2
+- Puma gem to version 3.12.4
+
 ## [1.1.3]
 
 ### Updated

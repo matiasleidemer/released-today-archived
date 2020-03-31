@@ -3,12 +3,12 @@ ruby '2.6.3'
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'administrate', '~> 0.11.0'
+gem 'administrate', '>= 0.13.0'
 gem 'bootsnap', '~> 1.4.4'
 gem 'bourbon', '~> 4.3.4'
 gem 'bugsnag', '~> 6.11.1'
@@ -20,7 +20,7 @@ gem 'octicons_helper', '~> 9.1.1'
 gem 'omniauth-spotify'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4.2'
 gem 'rspotify', '~> 1.27.0'
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid-ruby'
@@ -42,6 +42,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
+  gem 'simplecov', require: false
   gem 'timecop', '~> 0.9.1'
   gem 'vcr', '~> 5.0.0'
   gem 'webmock', '~> 3.6.0'
