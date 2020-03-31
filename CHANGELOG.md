@@ -9,6 +9,7 @@
 ### Updated
 
 - Administrate gem to 0.13
+- Rails gem to 5.2.4.2
 
 ## [1.1.3]
 
