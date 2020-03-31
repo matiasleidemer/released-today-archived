@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [1.1.5]
+
+### Added
+
+- Code climate integration
+- TravisCI integration
+
 ## [1.1.4]
 
 ### Added

@@ -1,5 +1,11 @@
 # released.today
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/34b834495f8ec12fcf44/maintainability)](https://codeclimate.com/github/matiasleidemer/released-today/maintainability)
+
+[![Test Coverage](https://api.codeclimate.com/v1/badges/34b834495f8ec12fcf44/test_coverage)](https://codeclimate.com/github/matiasleidemer/released-today/test_coverage)
+
+[![Build Status](https://travis-ci.com/matiasleidemer/released-today.svg?branch=master)](https://travis-ci.com/matiasleidemer/released-today)
+
 Track new music releases from your favorite artists. Don't miss a thing! 🎶
 
 ## Setup
