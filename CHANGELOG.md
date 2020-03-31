@@ -5,6 +5,7 @@
 ### Added
 
 - Code climate integration
+- TravisCI integration
 
 ## [1.1.4]
 
