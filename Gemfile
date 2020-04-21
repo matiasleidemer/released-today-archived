@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ruby '2.6.3'
 
 source 'https://rubygems.org'
@@ -22,6 +24,8 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'rails', '~> 5.2.4.2'
 gem 'rspotify', '~> 1.27.0'
+gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid-ruby'
 gem 'sidekiq', '~> 5.2.7'
