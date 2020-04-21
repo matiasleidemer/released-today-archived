@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Updated
+
+- webmock gem to version 3.8.3
+
 ## [1.1.5]
 
 ### Added

@@ -45,5 +45,5 @@ group :test do
   gem 'simplecov', require: false
   gem 'timecop', '~> 0.9.1'
   gem 'vcr', '~> 5.0.0'
-  gem 'webmock', '~> 3.6.0'
+  gem 'webmock', '~> 3.8.3'
 end
