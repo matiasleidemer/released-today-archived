@@ -44,8 +44,6 @@ Rails/SkipsModelValidations:
 Style/Documentation:
   Enabled: false
 
-# --
-
 Layout/SpaceAroundMethodCallOperator:
   Enabled: true
 
