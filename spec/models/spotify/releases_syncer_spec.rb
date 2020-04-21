@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Spotify::ReleasesSyncer do
@@ -40,7 +42,9 @@ RSpec.describe Spotify::ReleasesSyncer do
       end
 
       it 'does nothing' do
-        expect { described_class.call }.to_not change { artist.albums.count }
+        expect { described_class.call }
+          .not_to change { artist.albums.count }
+          .from(0)
       end
     end
   end

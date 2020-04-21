@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   store :preferences, accessors: [:email_frequency], coder: JSON
 
@@ -24,6 +26,7 @@ class User < ApplicationRecord
 
   def follow_artist(artist)
     return if artists.include?(artist)
+
     artists << artist
   end
 
@@ -42,7 +45,7 @@ class User < ApplicationRecord
     when 'weekly'
       Time.zone.now.monday? ? true : false
     when 'monthly'
-      Time.zone.now.day == 1 ? true : false
+      Time.zone.now.day == 1
     else
       false
     end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotify
   class Artist
     attr_reader :payload

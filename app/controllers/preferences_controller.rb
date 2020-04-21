@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class PreferencesController < ApplicationController
   before_action :authenticate_user!
 
   def index; end
 
   def update
-    current_user.update_attributes(permitted_params)
+    current_user.update(permitted_params)
     redirect_to preferences_path, flash: { success: 'Preferences updated successfully!' }
   end
 

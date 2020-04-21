@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   class AlbumsController < Admin::ApplicationController
     # To customize the behavior of this controller,
@@ -6,9 +8,9 @@ module Admin
     def index
       super
       @resources = Album
-        .order("released_at DESC")
-        .page(params[:page])
-        .per(10)
+                   .order('released_at DESC')
+                   .page(params[:page])
+                   .per(10)
     end
 
     # Define a custom finder by overriding the `find_resource` method:

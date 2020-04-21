@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Album do
@@ -28,7 +30,7 @@ RSpec.describe Album do
   end
 
   describe '#followers' do
-    subject { create(:album, artist: artist) }
+    subject(:album) { create(:album, artist: artist) }
 
     let(:artist) { create(:artist) }
     let(:user) { create(:user) }
@@ -36,24 +38,24 @@ RSpec.describe Album do
 
     it "returns the album artist's followers" do
       artist.users << user
-      expect(subject.followers).to eq([user])
+      expect(album.followers).to eq([user])
     end
   end
 
   describe '#released_today?' do
     it 'returns true when the album is released today' do
       album = build_stubbed(:album, released_at: Time.zone.today)
-      expect(album.released_today?).to eql(true)
+      expect(album.released_today?).to be(true)
     end
 
     it 'returns true if the album was released yesterday' do
       album = build_stubbed(:album, released_at: Time.zone.yesterday)
-      expect(album.released_today?).to eql(true)
+      expect(album.released_today?).to be(true)
     end
 
     it 'returns false if the album was released before yesterday' do
       album = build_stubbed(:album, released_at: Time.zone.today - 2.days)
-      expect(album.released_today?).to eql(false)
+      expect(album.released_today?).to be(false)
     end
   end
 end

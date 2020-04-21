@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SignUpSpotifyUser
   attr_reader :auth
 

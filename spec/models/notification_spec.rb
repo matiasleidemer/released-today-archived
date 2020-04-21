@@ -1,11 +1,17 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Notification, type: :model do
   describe '.mark_as_sent' do
-    before { Timecop.freeze(Time.zone.now) }
-    after { Timecop.return }
+    let(:notification) { instance_double('Notification') }
 
-    let(:notification) { spy(:notification) }
+    before do
+      Timecop.freeze(Time.zone.now)
+      allow(notification).to receive(:update_attribute)
+    end
+
+    after { Timecop.return }
 
     it 'updates the provided notifications sent_at attribute with the current time' do
       described_class.mark_as_sent([notification])

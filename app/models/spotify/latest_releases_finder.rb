@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotify
   # This is currently too tighted to RSpotify
   # For now we're gonna have to deal with it. For future implementations, however,
