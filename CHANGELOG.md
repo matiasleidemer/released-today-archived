@@ -6,6 +6,7 @@
 
 - webmock gem to version 3.8.3
 - rails to version 5.2.4.3
+- kaminari to version 1.2.1
 
 ## [1.1.5]
 
