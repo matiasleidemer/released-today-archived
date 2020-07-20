@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Updated
+
+- puma to version 4.3.5
+
 ## [1.1.6]
 
 ### Updated
