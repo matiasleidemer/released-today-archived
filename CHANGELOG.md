@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [unreleased]
+## [1.1.7]
 
 ### Updated
 
