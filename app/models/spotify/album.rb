@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Spotify
   class Album
     attr_reader :payload
@@ -21,6 +23,7 @@ module Spotify
 
     def image_url
       return nil if payload[:images].empty?
+
       payload[:images].first[:url]
     end
 
@@ -32,13 +35,13 @@ module Spotify
     def released_at
       date = payload[:release_date]
       date << case payload[:release_date_precision]
-      when "year"
-        "-01-01"
-      when "month"
-        "-01"
-      else
-        ""
-      end
+              when 'year'
+                '-01-01'
+              when 'month'
+                '-01'
+              else
+                ''
+              end
 
       Date.parse(date)
     end

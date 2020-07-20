@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class AuthenticateSpotify
-  TEST = 'test'.freeze
+  TEST = 'test'
 
   class << self
     attr_writer :authenticator

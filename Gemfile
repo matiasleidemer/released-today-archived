@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ruby '2.6.3'
 
 source 'https://rubygems.org'
@@ -15,13 +17,15 @@ gem 'bugsnag', '~> 6.11.1'
 gem 'devise', '~> 4.7.0'
 gem 'encrypted_strings', require: false
 gem 'foreman', '~> 0.85.0'
-gem 'kaminari', '~> 1.1.1'
+gem 'kaminari', '~> 1.2.1'
 gem 'octicons_helper', '~> 9.1.1'
 gem 'omniauth-spotify'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.2.4.2'
+gem 'rails', '~> 5.2.4.3'
 gem 'rspotify', '~> 1.27.0'
+gem 'rubocop-rails', require: false
+gem 'rubocop-rspec', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid-ruby'
 gem 'sidekiq', '~> 5.2.7'
@@ -45,5 +49,5 @@ group :test do
   gem 'simplecov', require: false
   gem 'timecop', '~> 0.9.1'
   gem 'vcr', '~> 5.0.0'
-  gem 'webmock', '~> 3.6.0'
+  gem 'webmock', '~> 3.8.3'
 end

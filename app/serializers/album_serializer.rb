@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AlbumSerializer < ActiveModel::Serializer
   attributes :id, :name, :released_at, :spotify_id, :image_url, :number_of_tracks
 

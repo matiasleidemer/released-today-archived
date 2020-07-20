@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe User do
   describe '.find_or_create_from_omniauth' do
+    subject(:omniath_user) { described_class.find_or_create_from_omniauth(auth) }
+
     let(:auth) do
       OpenStruct.new({
         provider: 'spotify',
@@ -13,10 +17,8 @@ RSpec.describe User do
       })
     end
 
-    subject { described_class.find_or_create_from_omniauth(auth) }
-
-    it "creates a new user with the omniath data" do
-      expect(subject).to have_attributes({
+    it 'creates a new user with the omniath data' do
+      expect(omniath_user).to have_attributes({
         uid: '112233',
         provider: 'spotify',
         name: 'John Snow',
@@ -30,8 +32,8 @@ RSpec.describe User do
       let!(:user) { FactoryBot.create(:user, uid: 42, provider: 'spotify') }
       let(:auth) { OpenStruct.new({ provider: 'spotify', uid: 42 }) }
 
-      it "returns the with the provider and uid" do
-        expect(subject).to eql(user)
+      it 'returns the with the provider and uid' do
+        expect(omniath_user).to eql(user)
       end
     end
   end

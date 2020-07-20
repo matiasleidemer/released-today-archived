@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SendNewReleases
   class << self
     def call(pending_notifications)
@@ -8,9 +10,9 @@ class SendNewReleases
         NotificationsMailer.new_releases(user, releases).deliver_later
         Notification.mark_as_sent(notifications)
       end
-    rescue Exception => error
-      Bugsnag.notify(error)
-      raise error
+    rescue StandardError => e
+      Bugsnag.notify(e)
+      raise e
     end
   end
 end

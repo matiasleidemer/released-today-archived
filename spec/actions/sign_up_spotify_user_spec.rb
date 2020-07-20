@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe SignUpSpotifyUser do
-  let(:omniauth_data) { double(:omniauth_data) }
+  subject(:sign_up_spotify_user) { described_class.new(omniauth_data) }
 
-  subject { described_class.new(omniauth_data) }
+  let(:omniauth_data) { instance_double('OpenStruct') }
 
   describe '#call' do
-    let(:user) { double(:user) }
+    let(:user) { instance_double('User') }
 
     before do
       allow(User)
@@ -19,9 +21,9 @@ RSpec.describe SignUpSpotifyUser do
       before { allow(user).to receive(:persisted?).and_return(false) }
 
       it 'returns an unsuccessful result' do
-        result = subject.call
+        result = sign_up_spotify_user.call
 
-        expect(result.success?).to eql(false)
+        expect(result.success?).to be(false)
         expect(result.user).to eql(user)
       end
     end
@@ -33,18 +35,24 @@ RSpec.describe SignUpSpotifyUser do
       end
 
       it 'returns a successful result' do
-        result = subject.call
+        result = sign_up_spotify_user.call
 
-        expect(result.success?).to eql(true)
+        expect(result.success?).to be(true)
         expect(result.user).to eql(user)
       end
 
       context "when user isn't following any artist" do
-        before { allow(user).to receive(:artists).and_return([]) }
+        before do
+          allow(user).to receive(:artists).and_return([])
+          allow(FetchNewUserArtistsJob).to receive(:perform_later)
+        end
 
         it 'enqueues a new FetchNewUserArtistsJob' do
-          expect(FetchNewUserArtistsJob).to receive(:perform_later).with(user)
-          subject.call
+          sign_up_spotify_user.call
+
+          expect(FetchNewUserArtistsJob)
+            .to have_received(:perform_later)
+            .with(user)
         end
       end
     end

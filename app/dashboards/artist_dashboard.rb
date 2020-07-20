@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class ArtistDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -13,7 +15,7 @@ class ArtistDashboard < Administrate::BaseDashboard
     albums: Field::HasMany,
     spotify_id: Field::String,
     disabled_at: Field::DateTime,
-    metadata: Field::String.with_options(searchable: false),
+    metadata: Field::String.with_options(searchable: false)
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -21,34 +23,34 @@ class ArtistDashboard < Administrate::BaseDashboard
   #
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
-  COLLECTION_ATTRIBUTES = [
-    :id,
-    :name,
-    :albums,
-    :disabled_at,
-    :spotify_id,
+  COLLECTION_ATTRIBUTES = %i[
+    id
+    name
+    albums
+    disabled_at
+    spotify_id
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
-  SHOW_PAGE_ATTRIBUTES = [
-    :id,
-    :name,
-    :albums,
-    :disabled_at,
-    :spotify_id,
-    :metadata,
+  SHOW_PAGE_ATTRIBUTES = %i[
+    id
+    name
+    albums
+    disabled_at
+    spotify_id
+    metadata
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
-  FORM_ATTRIBUTES = [
-    :albums,
-    :name,
-    :disabled_at,
-    :spotify_id,
-    :metadata,
+  FORM_ATTRIBUTES = %i[
+    albums
+    name
+    disabled_at
+    spotify_id
+    metadata
   ].freeze
 
   # Overwrite this method to customize how artists are displayed

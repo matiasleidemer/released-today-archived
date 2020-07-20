@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :album do
     name { 'Give a Glimpse of What Yer Not' }

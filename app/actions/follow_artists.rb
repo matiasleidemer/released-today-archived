@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FollowArtists
   attr_reader :user, :artists_ids
 

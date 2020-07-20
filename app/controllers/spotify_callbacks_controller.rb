@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SpotifyCallbacksController < Devise::OmniauthCallbacksController
   def spotify
     result = SignUpSpotifyUser.call(request.env['omniauth.auth'])
