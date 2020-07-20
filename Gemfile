@@ -21,7 +21,7 @@ gem 'kaminari', '~> 1.2.1'
 gem 'octicons_helper', '~> 9.1.1'
 gem 'omniauth-spotify'
 gem 'pg', '~> 0.18'
-gem 'puma', '~> 3.0'
+gem 'puma', '~> 3.12'
 gem 'rails', '~> 5.2.4.3'
 gem 'rspotify', '~> 1.27.0'
 gem 'rubocop-rails', require: false
