@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      bash -c "rm -f tmp/pids/server.pid &&
+               bundle check || bundle install &&
+               bundle exec rails s -p 3000 -b '0.0.0.0'"
+
+    depends_on:
+      - db
+    env_file: .env
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/app:cached
+      - gems_volume:/gems:cached
+
+  db:
+    image: postgres:9.6-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_HOST_AUTH_METHOD: trust
+    ports:
+      - '5432:5432'
+    volumes:
+      - db_volume:/var/lib/postgresql/data:cached
+
+  redis:
+    image: redis:alpine
+    command: redis-server
+    ports:
+      - '6379:6379'
+    volumes:
+      - redis_volume:/var/lib/redis/data:cached
+
+  sidekiq:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: >
+      bash -c "bundle check || bundle install &&
+               bundle exec sidekiq"
+    depends_on:
+      - db
+      - redis
+    volumes:
+      - .:/app:cached
+      - gems_volume:/gems:cached
+    env_file: .env
+
+volumes:
+  gems_volume:
+  db_volume:
+  redis_volume:
