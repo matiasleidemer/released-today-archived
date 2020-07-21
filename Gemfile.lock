@@ -195,7 +195,7 @@ GEM
     parallel (1.19.1)
     parser (2.7.1.1)
       ast (~> 2.4.0)
-    pg (0.20.0)
+    pg (1.2.3)
     public_suffix (4.0.4)
     puma (4.3.5)
       nio4r (~> 2.0)
@@ -374,7 +374,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   octicons_helper (~> 9.1.1)
   omniauth-spotify
-  pg (~> 0.18)
+  pg (~> 1.2.3)
   puma (~> 4.3.5)
   rails (~> 5.2.4.3)
   rspec-rails (~> 3.8)

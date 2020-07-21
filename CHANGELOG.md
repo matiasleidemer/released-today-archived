@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Updated
+
+- pg gem to version 1.2.3
+
 ## [1.1.7]
 
 ### Updated
