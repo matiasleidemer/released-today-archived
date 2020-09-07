@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## [1.1.8]
+
+### Fixed
+
+- Sidekiq as ActiveJob's default adapter
+
+### Updated
+
+- pg gem to version 1.2.3
+
 ## [1.1.7]
 
 ### Updated
