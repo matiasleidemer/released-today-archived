@@ -84,8 +84,8 @@ The app should be running at `http://localhost:3000`.
 
 ## Tests
 
-ReleasedToday uses RSpec and Rubocop for tests. You can run the full test suite with:
+ReleasedToday uses RSpec and Rubocop for tests. You can run the full test suite with the default rake task:
 
 ```
-bundle exec rspec
+docker-compose run --rm app ./bin/rake
 ```
