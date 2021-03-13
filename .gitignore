@@ -21,5 +21,7 @@ latest.dump
 .tags
 .tags1
 
+/config/database.yml
+
 # Simplecov output
 coverage

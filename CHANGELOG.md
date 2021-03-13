@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Fixed
+
+- Refresh spotify token before fetching new user's releases
+
+### Updated
+
+- Simplecov gem to version 0.21.2
+
 ## [1.1.8]
 
 ### Fixed

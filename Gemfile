@@ -35,7 +35,6 @@ group :development, :test do
   gem 'byebug', '~> 11.0.1', platform: :mri
   gem 'dotenv-rails', '~> 2.6.0'
   gem 'factory_bot_rails', '~> 5.0.2'
-  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
@@ -46,6 +45,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
+  gem 'rspec-rails', '~> 3.8'
   gem 'simplecov', require: false
   gem 'timecop', '~> 0.9.1'
   gem 'vcr', '~> 5.0.0'
