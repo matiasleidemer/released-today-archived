@@ -1,6 +1,10 @@
 # CHANGELOG
 
-## [unreleased]
+## [2.0.0]
+
+### Added
+
+- Docker setup
 
 ### Fixed
 
