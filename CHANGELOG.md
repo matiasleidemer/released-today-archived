@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [2.0.1]
+
+### Updated
+
+- Rails to version 5.2.4.5
+
 ## [2.0.0]
 
 ### Added
