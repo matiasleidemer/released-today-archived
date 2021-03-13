@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [unreleased]
+
+### Fixed
+
+- Refresh spotify token before fetching new user's releases
+
 ## [1.1.8]
 
 ### Fixed
