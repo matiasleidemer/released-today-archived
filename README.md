@@ -82,6 +82,12 @@ docker-compose up
 
 The app should be running at `http://localhost:3000`.
 
+### Fetching new releases
+
+Just run the following: `bundle exec rake releases:sync`. It will trigger a background job that will
+fetch new releases for every artist in the database. Ideally, if you're running Released today in a
+server, you'd have a cron job doing that for you daily.
+
 ## Tests
 
 ReleasedToday uses RSpec and Rubocop for tests. You can run the full test suite with the default rake task:
