@@ -4,8 +4,18 @@ module Spotify
   class Artist
     attr_reader :payload
 
+    delegate :hash, to: :spotify_id
+
     def initialize(payload)
       @payload = payload.with_indifferent_access
+    end
+
+    def self.build_from_collection(artists)
+      artists.map { |artist| build(artist) }
+    end
+
+    def self.build(artist)
+      new(JSON.parse(artist.to_json).with_indifferent_access)
     end
 
     def self.find(artist_id, client = RSpotify::Artist)
@@ -16,6 +26,10 @@ module Spotify
     def self.find_all(artists_ids, client = RSpotify::Artist)
       artists = JSON.parse(client.find(artists_ids).to_json)
       artists.map { |payload| new(payload.with_indifferent_access) }
+    end
+
+    def eql?(other)
+      spotify_id == other.spotify_id
     end
 
     def latest_releases
