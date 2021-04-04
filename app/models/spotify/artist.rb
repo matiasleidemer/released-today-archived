@@ -33,7 +33,7 @@ module Spotify
     end
 
     def latest_releases
-      Spotify::LatestReleasesFinder.call(artist: self)
+      Spotify::LatestReleases.new(self).all
     end
 
     def name

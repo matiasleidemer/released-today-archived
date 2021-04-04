@@ -8,6 +8,10 @@ module Spotify
       @payload = payload.with_indifferent_access
     end
 
+    def self.find_collection(ids, client = RSpotify::Album)
+      client.find(ids).map { |album| new(JSON.parse(album.to_json)) }
+    end
+
     def self.find(album_id, client = RSpotify::Album)
       payload = JSON.parse(client.find(album_id).to_json).with_indifferent_access
       new(payload)
